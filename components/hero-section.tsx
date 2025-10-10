@@ -23,7 +23,7 @@ export function HeroSection() {
               className="space-y-4"
             >
               <h1 className="text-5xl md:text-7xl lg:text-5xl font-bold">
-                <span className="text-foreground">Hi, I'm Aurelius Nguyen</span>
+                <span className="text-foreground">Hi, I&apos;m Aurelius Nguyen</span>
               </h1>
               <div className="h-1 w-132 bg-gradient-to-r from-primary to-transparent" />
             </div>
@@ -59,7 +59,7 @@ export function HeroSection() {
               data-sal-delay="500"
               className="text-lg text-muted-foreground"
             >
-              I'm also passionate about{" "}
+              I&apos;m also passionate about{" "}
               <span className="text-primary">Cybersecurity</span>,{" "}
               <span className="text-primary">Data Engineering</span>,{" "}
               <span className="text-primary">Quantum Computing</span>, and{" "}

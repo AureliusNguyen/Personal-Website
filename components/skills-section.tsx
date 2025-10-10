@@ -6,12 +6,6 @@ import "devicon/devicon.min.css";
 import { SiOpenai, SiNvidia } from "react-icons/si";
 import { FaLink } from "react-icons/fa";
 
-interface Skill {
-  name: string;
-  icon: string | React.ComponentType<{ className?: string }>;
-  isReactIcon?: boolean;
-}
-
 const skills = {
   languages: [
     { name: "Python", icon: "devicon-python-plain colored" },
@@ -107,7 +101,7 @@ export function SkillsSection() {
           </h2>
           <div className="h-1 w-20 bg-primary mx-auto" />
           <p className="text-muted-foreground mt-6">
-            Languages and Technologies I've worked with
+            Languages and Technologies I&apos;ve worked with
           </p>
         </div>
 
