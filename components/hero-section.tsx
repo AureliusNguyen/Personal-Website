@@ -34,7 +34,7 @@ export function HeroSection() {
               data-sal-delay="300"
               className="text-xl md:text-2xl text-muted-foreground leading-relaxed"
             >
-              I'm an honors Master&apos;s student in{" "}
+              I&apos;m an honors Master&apos;s student in{" "}
               <span className="text-primary font-semibold">
                 Computer Science
               </span>{" "}
