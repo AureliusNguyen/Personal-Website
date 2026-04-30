@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none" role="img" aria-label="Aurelius Nguyen">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="hsl(0 0% 8%)"/>
+      <stop offset="100%" stop-color="hsl(0 0% 3%)"/>
+    </radialGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="1.6" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Octagon medallion -->
+  <polygon points="100,6 166,34 194,100 166,166 100,194 34,166 6,100 34,34"
+           fill="url(#bg)" stroke="hsl(354 90% 52%)" stroke-width="2"/>
+  <polygon points="100,18 156,42 178,100 156,158 100,182 44,158 22,100 44,42"
+           fill="none" stroke="hsl(354 90% 52%)" stroke-width="0.8" opacity="0.55"/>
+  <polygon points="100,30 146,50 162,100 146,150 100,170 54,150 38,100 54,50"
+           fill="none" stroke="hsl(354 90% 52%)" stroke-width="0.5" opacity="0.35"/>
+
+  <!-- Corner pip diamonds -->
+  <g fill="hsl(354 90% 52%)">
+    <path d="M100 12 L104 16 L100 20 L96 16 Z"/>
+    <path d="M100 180 L104 184 L100 188 L96 184 Z"/>
+    <path d="M12 100 L16 96 L20 100 L16 104 Z"/>
+    <path d="M180 100 L184 96 L188 100 L184 104 Z"/>
+  </g>
+
+  <!-- Faceted angular spade -->
+  <g filter="url(#glow)" transform="translate(100 99)">
+    <path d="M0 -52 L 24 -22 L 48 4 L 48 20 L 32 38 L 14 38 L 6 32 L 12 54 L -12 54 L -6 32 L -14 38 L -32 38 L -48 20 L -48 4 L -24 -22 Z"
+          fill="none" stroke="hsl(354 90% 52%)" stroke-width="2"/>
+    <text x="0" y="16" text-anchor="middle"
+          font-family="'Cormorant Garamond', Georgia, 'Noto Serif', serif"
+          font-weight="700" font-size="44"
+          fill="hsl(354 90% 52%)">A</text>
+  </g>
+</svg>

@@ -1,0 +1,140 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <defs>
+    <radialGradient id="cb-bg" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#141414"/>
+      <stop offset="100%" stop-color="#080808"/>
+    </radialGradient>
+
+    <pattern id="cb-lattice-a" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(30)">
+      <path d="M0 5 H10" stroke="#ef4444" stroke-width="0.4" opacity="0.35"/>
+    </pattern>
+    <pattern id="cb-lattice-b" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(-30)">
+      <path d="M0 5 H10" stroke="#ef4444" stroke-width="0.4" opacity="0.35"/>
+    </pattern>
+
+    <pattern id="cb-rays" width="400" height="400" patternUnits="userSpaceOnUse">
+      <g transform="translate(200.0 200.0)">
+      <line x1="0" y1="0" x2="0" y2="200" stroke="#ef4444" stroke-width="0.35" opacity="0.25" transform="rotate(0.0)" />
+      <line x1="0" y1="0" x2="0" y2="200" stroke="#ef4444" stroke-width="0.35" opacity="0.25" transform="rotate(15.0)" />
+      <line x1="0" y1="0" x2="0" y2="200" stroke="#ef4444" stroke-width="0.35" opacity="0.25" transform="rotate(30.0)" />
+      <line x1="0" y1="0" x2="0" y2="200" stroke="#ef4444" stroke-width="0.35" opacity="0.25" transform="rotate(45.0)" />
+      <line x1="0" y1="0" x2="0" y2="200" stroke="#ef4444" stroke-width="0.35" opacity="0.25" transform="rotate(60.0)" />
+      <line x1="0" y1="0" x2="0" y2="200" stroke="#ef4444" stroke-width="0.35" opacity="0.25" transform="rotate(75.0)" />
+      <line x1="0" y1="0" x2="0" y2="200" stroke="#ef4444" stroke-width="0.35" opacity="0.25" transform="rotate(90.0)" />
+      <line x1="0" y1="0" x2="0" y2="200" stroke="#ef4444" stroke-width="0.35" opacity="0.25" transform="rotate(105.0)" />
+      <line x1="0" y1="0" x2="0" y2="200" stroke="#ef4444" stroke-width="0.35" opacity="0.25" transform="rotate(120.0)" />
+      <line x1="0" y1="0" x2="0" y2="200" stroke="#ef4444" stroke-width="0.35" opacity="0.25" transform="rotate(135.0)" />
+      <line x1="0" y1="0" x2="0" y2="200" stroke="#ef4444" stroke-width="0.35" opacity="0.25" transform="rotate(150.0)" />
+      <line x1="0" y1="0" x2="0" y2="200" stroke="#ef4444" stroke-width="0.35" opacity="0.25" transform="rotate(165.0)" />
+      <line x1="0" y1="0" x2="0" y2="200" stroke="#ef4444" stroke-width="0.35" opacity="0.25" transform="rotate(180.0)" />
+      <line x1="0" y1="0" x2="0" y2="200" stroke="#ef4444" stroke-width="0.35" opacity="0.25" transform="rotate(195.0)" />
+      <line x1="0" y1="0" x2="0" y2="200" stroke="#ef4444" stroke-width="0.35" opacity="0.25" transform="rotate(210.0)" />
+      <line x1="0" y1="0" x2="0" y2="200" stroke="#ef4444" stroke-width="0.35" opacity="0.25" transform="rotate(225.0)" />
+      <line x1="0" y1="0" x2="0" y2="200" stroke="#ef4444" stroke-width="0.35" opacity="0.25" transform="rotate(240.0)" />
+      <line x1="0" y1="0" x2="0" y2="200" stroke="#ef4444" stroke-width="0.35" opacity="0.25" transform="rotate(255.0)" />
+      <line x1="0" y1="0" x2="0" y2="200" stroke="#ef4444" stroke-width="0.35" opacity="0.25" transform="rotate(270.0)" />
+      <line x1="0" y1="0" x2="0" y2="200" stroke="#ef4444" stroke-width="0.35" opacity="0.25" transform="rotate(285.0)" />
+      <line x1="0" y1="0" x2="0" y2="200" stroke="#ef4444" stroke-width="0.35" opacity="0.25" transform="rotate(300.0)" />
+      <line x1="0" y1="0" x2="0" y2="200" stroke="#ef4444" stroke-width="0.35" opacity="0.25" transform="rotate(315.0)" />
+      <line x1="0" y1="0" x2="0" y2="200" stroke="#ef4444" stroke-width="0.35" opacity="0.25" transform="rotate(330.0)" />
+      <line x1="0" y1="0" x2="0" y2="200" stroke="#ef4444" stroke-width="0.35" opacity="0.25" transform="rotate(345.0)" />
+      </g>
+    </pattern>
+
+    <filter id="cb-glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2.4" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <symbol id="cb-corner" viewBox="0 0 60 60">
+      <g fill="none" stroke="#ef4444" stroke-width="0.7" opacity="0.85">
+        <path d="M2 2 H40 M2 2 V40"/>
+        <path d="M6 6 H34 M6 6 V34" opacity="0.6"/>
+        <path d="M30 10 L 20 10 L 10 20 L 10 30"/>
+        <path d="M26 14 L 18 14 L 14 18 L 14 26" opacity="0.7"/>
+        <path d="M22 18 L 18 18 L 18 22" opacity="0.5"/>
+        <path d="M10 8 L 12 10 L 10 12 L 8 10 Z" fill="#ef4444"/>
+        <path d="M30 9 L 31 10 L 30 11 L 29 10 Z" fill="#ef4444" opacity="0.7"/>
+        <path d="M10 29 L 11 30 L 10 31 L 9 30 Z" fill="#ef4444" opacity="0.7"/>
+        <path d="M40 2 L 46 2 L 46 8" opacity="0.6"/>
+        <path d="M2 40 L 2 46 L 8 46" opacity="0.6"/>
+      </g>
+    </symbol>
+
+    <symbol id="cb-flourish" viewBox="0 0 80 30">
+      <g fill="none" stroke="#ef4444" stroke-width="0.6" opacity="0.75">
+        <path d="M0 15 L 20 5 L 40 15 L 60 5 L 80 15"/>
+        <path d="M0 15 L 20 25 L 40 15 L 60 25 L 80 15"/>
+        <path d="M40 11 L 44 15 L 40 19 L 36 15 Z" fill="#ef4444"/>
+        <path d="M14 13 L 16 15 L 14 17 L 12 15 Z" fill="#ef4444" opacity="0.7"/>
+        <path d="M66 13 L 68 15 L 66 17 L 64 15 Z" fill="#ef4444" opacity="0.7"/>
+      </g>
+    </symbol>
+  </defs>
+
+  <!-- Background -->
+  <rect width="400" height="400" fill="url(#cb-bg)"/>
+
+  <g color="#ef2741">
+    <!-- Outer borders (sharp corners), symmetric inset -->
+    <rect x="6" y="6" width="388" height="388" fill="none" stroke="#ef4444" stroke-width="1.2" opacity="0.9"/>
+    <rect x="11" y="11" width="378" height="378" fill="none" stroke="#ef4444" stroke-width="0.5" opacity="0.55"/>
+    <rect x="16" y="16" width="368" height="368" fill="none" stroke="#ef4444" stroke-width="0.4" opacity="0.35"/>
+
+    <!-- Lattice fill -->
+    <g opacity="0.55">
+      <rect x="20" y="20" width="360" height="360" fill="url(#cb-lattice-a)"/>
+      <rect x="20" y="20" width="360" height="360" fill="url(#cb-lattice-b)"/>
+    </g>
+
+    <!-- Rays -->
+    <rect x="20" y="20" width="360" height="360" fill="url(#cb-rays)"/>
+
+    <!-- Top/bottom + left/right flourishes (square gets all four sides) -->
+    <use href="#cb-corner" x="14" y="14" width="60" height="60"/>
+    <use href="#cb-corner" x="326" y="14" width="60" height="60" transform="rotate(90 356 44)"/>
+    <use href="#cb-corner" x="14" y="326" width="60" height="60" transform="rotate(-90 44 356)"/>
+    <use href="#cb-corner" x="326" y="326" width="60" height="60" transform="rotate(180 356 356)"/>
+
+    <!-- Top, bottom, left, right flourishes -->    <use href="#cb-flourish" x="160.0" y="22" width="80" height="30"/>
+    <use href="#cb-flourish" x="160.0" y="348" width="80" height="30"/>
+    <use href="#cb-flourish" x="22" y="185" width="80" height="30" transform="rotate(-90 62 200)"/>
+    <use href="#cb-flourish" x="298" y="185" width="80" height="30" transform="rotate(90 338 200)"/>
+    <!-- Central medallion -->
+    <g transform="translate(200.0 200.0)">
+    <rect x="-78" y="-78" width="156" height="156" fill="none" stroke="#ef4444" stroke-width="0.4" opacity="0.35" transform="rotate(0.0)" />
+    <rect x="-78" y="-78" width="156" height="156" fill="none" stroke="#ef4444" stroke-width="0.4" opacity="0.35" transform="rotate(22.5)" />
+    <rect x="-78" y="-78" width="156" height="156" fill="none" stroke="#ef4444" stroke-width="0.4" opacity="0.35" transform="rotate(45.0)" />
+    <rect x="-78" y="-78" width="156" height="156" fill="none" stroke="#ef4444" stroke-width="0.4" opacity="0.35" transform="rotate(67.5)" />
+    <rect x="-78" y="-78" width="156" height="156" fill="none" stroke="#ef4444" stroke-width="0.4" opacity="0.35" transform="rotate(90.0)" />
+    <rect x="-78" y="-78" width="156" height="156" fill="none" stroke="#ef4444" stroke-width="0.4" opacity="0.35" transform="rotate(112.5)" />
+    <rect x="-78" y="-78" width="156" height="156" fill="none" stroke="#ef4444" stroke-width="0.4" opacity="0.35" transform="rotate(135.0)" />
+    <rect x="-78" y="-78" width="156" height="156" fill="none" stroke="#ef4444" stroke-width="0.4" opacity="0.35" transform="rotate(157.5)" />
+      <polygon points="74,0 52.3,52.3 0,74 -52.3,52.3 -74,0 -52.3,-52.3 0,-74 52.3,-52.3"
+        fill="#0a0a0a" stroke="#ef4444" stroke-width="0.8" opacity="0.95"/>
+      <polygon points="68,0 48.1,48.1 0,68 -48.1,48.1 -68,0 -48.1,-48.1 0,-68 48.1,-48.1"
+        fill="none" stroke="#ef4444" stroke-width="0.4" opacity="0.5"/>
+      <polygon points="60,0 42.4,42.4 0,60 -42.4,42.4 -60,0 -42.4,-42.4 0,-60 42.4,-42.4"
+        fill="none" stroke="#ef4444" stroke-width="0.3" opacity="0.35"/>
+
+      <g filter="url(#cb-glow)">
+        <path d="M0 -48 L 22 -20 L 44 4 L 44 18 L 30 36 L 14 36 L 6 30 L 12 50 L -12 50 L -6 30 L -14 36 L -30 36 L -44 18 L -44 4 L -22 -20 Z"
+          fill="none" stroke="#ef4444" stroke-width="1.4" opacity="0.95"/>
+      </g>
+
+      <text x="0" y="14" text-anchor="middle" font-family="Cormorant Garamond, Garamond, serif"
+        font-weight="600" font-size="44" fill="#ef4444" filter="url(#cb-glow)">A</text>
+    </g>
+
+    <!-- Corner pip dots -->
+    <g fill="#ef4444" opacity="0.7">
+      <circle cx="22" cy="22" r="1"/>
+      <circle cx="378" cy="22" r="1"/>
+      <circle cx="22" cy="378" r="1"/>
+      <circle cx="378" cy="378" r="1"/>
+    </g>
+  </g>
+</svg>

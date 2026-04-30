@@ -5,23 +5,24 @@ import { ProjectsSection } from '@/components/projects-section'
 import { SkillsSection } from '@/components/skills-section'
 import { AwardsSection } from '@/components/awards-section'
 import { ContactSection } from '@/components/contact-section'
-import { CustomCursor } from '@/components/custom-cursor'
-import { SalInit } from '@/components/sal-init'
+import { ManifestoSection } from '@/components/manifesto-section'
 
 export default function Home() {
   return (
-    <div className="custom-cursor">
-      <SalInit />
-      <CustomCursor />
+    <>
       <Navigation />
       <main>
         <HeroSection />
+        {/* Breathing room between pinned sections */}
+        <div aria-hidden className="h-[25vh]" />
+        <ManifestoSection />
+        <div aria-hidden className="h-[35vh]" />
         <AboutSection />
         <ProjectsSection />
         <SkillsSection />
         <AwardsSection />
         <ContactSection />
       </main>
-    </div>
+    </>
   )
 }

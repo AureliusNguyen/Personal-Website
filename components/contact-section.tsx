@@ -1,142 +1,189 @@
-'use client'
+"use client";
 
-import { Card } from './ui/card'
-import { Button } from './ui/button'
-import { Mail, Phone, MapPin } from "lucide-react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { Mail, MapPin } from "lucide-react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faGithub,
+  faLinkedin,
+  faDiscord,
+} from "@fortawesome/free-brands-svg-icons";
+import { useReveal } from "@/hooks/use-reveal";
+
+type Channel = {
+  rank: string;
+  suit: "♠" | "♥" | "♦" | "♣";
+  label: string;
+  value: string;
+  href?: string;
+  icon: React.ReactNode;
+};
+
+const channels: Channel[] = [
+  {
+    rank: "10",
+    suit: "♠",
+    label: "Location",
+    value: "Minneapolis, MN",
+    icon: <MapPin className="w-9 h-9" strokeWidth={1.4} />,
+  },
+  {
+    rank: "J",
+    suit: "♥",
+    label: "Email",
+    value: "nguy5272@umn.edu",
+    href: "mailto:nguy5272@umn.edu",
+    icon: <Mail className="w-9 h-9" strokeWidth={1.4} />,
+  },
+  {
+    rank: "Q",
+    suit: "♦",
+    label: "GitHub",
+    value: "View my projects",
+    href: "https://github.com/AureliusNguyen",
+    icon: <FontAwesomeIcon icon={faGithub} className="w-9 h-9" />,
+  },
+  {
+    rank: "K",
+    suit: "♣",
+    label: "LinkedIn",
+    value: "Connect with me",
+    href: "https://linkedin.com/in/aurelius-nguyen",
+    icon: <FontAwesomeIcon icon={faLinkedin} className="w-9 h-9" />,
+  },
+  {
+    rank: "A",
+    suit: "♠",
+    label: "Discord",
+    value: "_Madarame_",
+    icon: <FontAwesomeIcon icon={faDiscord} className="w-9 h-9" />,
+  },
+];
+
 export function ContactSection() {
+  const headerRef = useReveal<HTMLDivElement>();
+  const gridRef = useReveal<HTMLDivElement>();
+  const footerRef = useReveal<HTMLDivElement>();
+
   return (
-    <section id="contact" className="py-24 px-4">
-      <div className="container mx-auto max-w-4xl">
-        <div data-sal="slide-up" data-sal-duration="600" className="text-center mb-16">
-          <h2 className="text-5xl font-bold mb-4 bg-gradient-to-r from-foreground to-primary bg-clip-text text-transparent">
+    <section id="contact" className="relative py-24 px-4">
+      <div className="absolute inset-0 bg-grid opacity-25 pointer-events-none" />
+
+      <div className="container mx-auto max-w-6xl relative">
+        <div ref={headerRef} className="reveal text-center mb-16">
+          <p className="font-mono text-xs tracking-[0.4em] uppercase text-primary/80">
+            Hand Off
+          </p>
+          <h2 className="mt-3 text-5xl md:text-6xl font-semibold text-gradient">
             Get In Touch
           </h2>
-          <div className="h-1 w-20 bg-primary mx-auto" />
+          <div
+            className="h-px w-24 mx-auto mt-6"
+            style={{ background: "var(--gradient-red)" }}
+          />
           <p className="text-muted-foreground mt-6 max-w-2xl mx-auto">
-            I&apos;m always open to discussing new projects, creative ideas, or opportunities to be
-            part of your vision.
+            Open for projects, collabs, or any interesting problem. The
+            fastest way to reach me is through the platforms below.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
-          <Card
-            data-sal="slide-right"
-            data-sal-duration="600"
-            className="p-8 bg-card border-primary/20 hover:border-primary/50 transition-all"
-          >
-            <h3 className="text-2xl font-bold mb-6 text-primary">Contact Information</h3>
-            <div className="space-y-6">
-              <a
-                href="mailto:nguy5272@umn.edu"
-                className="flex items-center gap-4 text-muted-foreground hover:text-primary transition-colors group"
-              >
-                <div className="p-3 rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors">
-                  <Mail className="w-5 h-5 text-primary" />
-                </div>
-                <div>
-                  <p className="text-sm text-muted-foreground">Email</p>
-                  <p className="font-semibold">nguy5272@umn.edu</p>
-                </div>
-              </a>
-
-              <a
-                href="tel:+16125581395"
-                className="flex items-center gap-4 text-muted-foreground hover:text-primary transition-colors group"
-              >
-                <div className="p-3 rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors">
-                  <Phone className="w-5 h-5 text-primary" />
-                </div>
-                <div>
-                  <p className="text-sm text-muted-foreground">Phone</p>
-                  <p className="font-semibold">(612) 558-1395</p>
-                </div>
-              </a>
-
-              <div className="flex items-center gap-4 text-muted-foreground">
-                <div className="p-3 rounded-full bg-primary/10">
-                  <MapPin className="w-5 h-5 text-primary" />
-                </div>
-                <div>
-                  <p className="text-sm text-muted-foreground">Location</p>
-                  <p className="font-semibold">Minneapolis, MN</p>
-                </div>
-              </div>
-            </div>
-          </Card>
-
-          <Card
-            data-sal="slide-left"
-            data-sal-duration="600"
-            className="p-8 bg-card border-primary/20 hover:border-primary/50 transition-all"
-          >
-            <h3 className="text-2xl font-bold mb-6 text-primary">Connect With Me</h3>
-            <p className="text-muted-foreground mb-6">
-              Follow me on social media and check out my work on GitHub.
-            </p>
-            <div className="space-y-4">
-              <Button
-                asChild
-                variant="outline"
-                className="w-full justify-start gap-3 border-primary/30 hover:bg-primary/10 hover:border-primary/50"
-              >
-                <a
-                  href="https://github.com/AureliusNguyen"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <FontAwesomeIcon icon={faGithub} className="w-5 h-5" />
-                  <span>My GitHub</span>
-                </a>
-              </Button>
-
-              <Button
-                asChild
-                variant="outline"
-                className="w-full justify-start gap-3 border-primary/30 hover:bg-primary/10 hover:border-primary/50"
-              >
-                <a
-                  href="https://linkedin.com/in/aurelius-nguyen"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <FontAwesomeIcon icon={faLinkedin} className="w-5 h-5" />
-                  <span>My LinkedIn</span>
-                </a>
-              </Button>
-
-              <Button
-                asChild
-                size="lg"
-                className="w-full mt-6 bg-primary hover:bg-primary/90"
-              >
-                <a href="mailto:nguy5272@umn.edu">
-                  <Mail className="w-5 h-5 mr-2" />
-                  Send Me an Email
-                </a>
-              </Button>
-            </div>
-          </Card>
+        <div
+          ref={gridRef}
+          className="reveal grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5"
+        >
+          {channels.map((c) => (
+            <ChannelTile key={c.label} channel={c} />
+          ))}
         </div>
 
-        {/* Footer */}
         <div
-          data-sal="fade"
-          data-sal-duration="600"
-          data-sal-delay="300"
-          className="mt-16 text-center text-muted-foreground"
+          ref={footerRef}
+          className="reveal mt-20 text-center text-muted-foreground"
         >
-          <p className="mb-2">
-            Built with <span className="text-primary">Next.js</span>,{' '}
-            <span className="text-primary">TypeScript</span>, and{' '}
+          <p className="text-xs font-mono uppercase tracking-[0.3em] mb-2">
+            Built with{" "}
+            <span className="text-primary">Next.js</span>
+            {" · "}
+            <span className="text-primary">TypeScript</span>
+            {" · "}
             <span className="text-primary">Tailwind CSS</span>
           </p>
-          <p className="text-sm">
+          <p className="text-xs font-mono tracking-wider">
             © {new Date().getFullYear()} Aurelius Nguyen. All rights reserved.
           </p>
         </div>
       </div>
     </section>
-  )
+  );
+}
+
+function ChannelTile({ channel }: { channel: Channel }) {
+  const isRedSuit = channel.suit === "♥" || channel.suit === "♦";
+  const suitColor = isRedSuit ? "text-primary" : "text-foreground/85";
+
+  const body = (
+    <>
+      {/* Top-left rank+suit */}
+      <div className="absolute top-3 left-4 flex flex-col items-center leading-none pointer-events-none">
+        <span className={`font-display text-sm ${suitColor}`}>
+          {channel.rank}
+        </span>
+        <span className={`font-display text-sm -mt-0.5 ${suitColor}`}>
+          {channel.suit}
+        </span>
+      </div>
+
+      {/* Bottom-right rank+suit (rotated 180) */}
+      <div className="absolute bottom-3 right-4 flex flex-col items-center leading-none rotate-180 pointer-events-none">
+        <span className={`font-display text-sm ${suitColor}`}>
+          {channel.rank}
+        </span>
+        <span className={`font-display text-sm -mt-0.5 ${suitColor}`}>
+          {channel.suit}
+        </span>
+      </div>
+
+      {/* Faint suit watermark */}
+      <span
+        aria-hidden
+        className={`absolute -bottom-10 -right-6 font-display text-[11rem] leading-none pointer-events-none select-none ${suitColor} opacity-[0.06] group-hover:opacity-[0.14] transition-opacity duration-500`}
+      >
+        {channel.suit}
+      </span>
+
+      {/* Centered icon */}
+      <div className="flex-1 grid place-items-center">
+        <span className="text-primary transition-transform duration-500 group-hover:-translate-y-1 group-hover:scale-110">
+          {channel.icon}
+        </span>
+      </div>
+
+      {/* Label + value */}
+      <div className="mt-auto text-center">
+        <span className="block text-[10px] font-mono uppercase tracking-[0.3em] text-muted-foreground">
+          {channel.label}
+        </span>
+        <span className="block mt-1 font-medium text-foreground truncate group-hover:text-primary transition-colors">
+          {channel.value}
+        </span>
+      </div>
+    </>
+  );
+
+  const className =
+    "card-surface relative aspect-[5/7] p-6 group flex flex-col overflow-hidden transition-transform duration-500 hover:-translate-y-1";
+
+  if (channel.href) {
+    return (
+      <a
+        href={channel.href}
+        target={channel.href.startsWith("http") ? "_blank" : undefined}
+        rel={channel.href.startsWith("http") ? "noreferrer" : undefined}
+        className={className}
+      >
+        {body}
+      </a>
+    );
+  }
+
+  return <div className={className}>{body}</div>;
 }
