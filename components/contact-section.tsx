@@ -1,12 +1,12 @@
 "use client";
 
-import { Mail, MapPin } from "lucide-react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faGithub,
-  faLinkedin,
-  faDiscord,
-} from "@fortawesome/free-brands-svg-icons";
+  FaMapMarkerAlt,
+  FaEnvelope,
+  FaGithub,
+  FaLinkedin,
+  FaDiscord,
+} from "react-icons/fa";
 import { useReveal } from "@/hooks/use-reveal";
 
 type Channel = {
@@ -18,13 +18,15 @@ type Channel = {
   icon: React.ReactNode;
 };
 
+const ICON_CLASS = "w-10 h-10";
+
 const channels: Channel[] = [
   {
     rank: "10",
     suit: "♠",
     label: "Location",
     value: "Minneapolis, MN",
-    icon: <MapPin className="w-9 h-9" strokeWidth={1.4} />,
+    icon: <FaMapMarkerAlt className={ICON_CLASS} />,
   },
   {
     rank: "J",
@@ -32,7 +34,7 @@ const channels: Channel[] = [
     label: "Email",
     value: "nguy5272@umn.edu",
     href: "mailto:nguy5272@umn.edu",
-    icon: <Mail className="w-9 h-9" strokeWidth={1.4} />,
+    icon: <FaEnvelope className={ICON_CLASS} />,
   },
   {
     rank: "Q",
@@ -40,7 +42,7 @@ const channels: Channel[] = [
     label: "GitHub",
     value: "View my projects",
     href: "https://github.com/AureliusNguyen",
-    icon: <FontAwesomeIcon icon={faGithub} className="w-9 h-9" />,
+    icon: <FaGithub className={ICON_CLASS} />,
   },
   {
     rank: "K",
@@ -48,14 +50,14 @@ const channels: Channel[] = [
     label: "LinkedIn",
     value: "Connect with me",
     href: "https://linkedin.com/in/aurelius-nguyen",
-    icon: <FontAwesomeIcon icon={faLinkedin} className="w-9 h-9" />,
+    icon: <FaLinkedin className={ICON_CLASS} />,
   },
   {
     rank: "A",
     suit: "♠",
     label: "Discord",
     value: "_Madarame_",
-    icon: <FontAwesomeIcon icon={faDiscord} className="w-9 h-9" />,
+    icon: <FaDiscord className={ICON_CLASS} />,
   },
 ];
 
