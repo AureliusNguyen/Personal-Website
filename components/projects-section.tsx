@@ -189,17 +189,57 @@ function ProjectCardFront({
             ))}
           </ul>
 
-          {/* Project visual placeholder - fixed height anchored to the bottom
-              of the card so every card has an identical visual area. Visit
-              button is overlaid in its top-right corner. */}
+          {/* Project visual - fixed height anchored to the bottom of the card
+              so every card has an identical visual area. Visit button is
+              overlaid in its top-right corner. */}
           <div
-            className="mt-auto h-[280px] mb-4 rounded-md grid place-items-center relative"
+            className="project-visual mt-auto h-[280px] mb-4 rounded-md grid place-items-center relative overflow-hidden"
             style={{
               border: "1px dashed var(--border-strong)",
               background:
                 "linear-gradient(160deg, oklch(0.07 0.01 25) 0%, oklch(0.04 0.005 25) 100%)",
             }}
           >
+            {project.image && (() => {
+              const isCustomCover = project.image.startsWith("/");
+              return (
+                <>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={project.image}
+                    alt={project.imageAlt ?? ""}
+                    loading="lazy"
+                    referrerPolicy="no-referrer"
+                    onError={(e) => {
+                      const img = e.currentTarget;
+                      img.style.display = "none";
+                      img.parentElement?.classList.add(
+                        "project-visual--no-image"
+                      );
+                    }}
+                    className="absolute inset-0 w-full h-full object-cover"
+                    style={
+                      isCustomCover
+                        ? undefined
+                        : {
+                            filter:
+                              "saturate(0.85) contrast(1.05) brightness(0.78)",
+                          }
+                    }
+                  />
+                  {!isCustomCover && (
+                    <div
+                      aria-hidden
+                      className="absolute inset-0 pointer-events-none"
+                      style={{
+                        background:
+                          "linear-gradient(160deg, oklch(0.04 0.005 25 / 0.55) 0%, oklch(0.04 0.005 25 / 0.25) 50%, oklch(0.55 0.22 25 / 0.18) 100%)",
+                      }}
+                    />
+                  )}
+                </>
+              );
+            })()}
             <a
               href={project.link ?? "#"}
               target={project.link ? "_blank" : undefined}
@@ -222,9 +262,11 @@ function ProjectCardFront({
               Visit
               <ExternalLink className="w-3 h-3" />
             </a>
-            <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
-              Visual · TBD
-            </span>
+            {!project.image && (
+              <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
+                Visual · TBD
+              </span>
+            )}
           </div>
 
           <div className="flex flex-wrap gap-1.5">

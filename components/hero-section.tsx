@@ -211,12 +211,11 @@ export function HeroSection() {
               {/* Glow wrapper - filter must live on a non-3D ancestor or it
                   flattens the preserve-3d context and the back face vanishes. */}
               <div
-                className="relative aspect-square w-72 sm:w-80 lg:w-96"
+                className="hero-portrait relative aspect-square w-72 sm:w-80 lg:w-96"
                 style={{
                   filter: `drop-shadow(0 0 ${
                     24 + flipProgress * 36
                   }px oklch(0.55 0.22 25 / ${0.30 + flipProgress * 0.40}))`,
-                  transition: "filter 600ms var(--ease-out-expo)",
                 }}
               >
               <div
@@ -265,6 +264,86 @@ export function HeroSection() {
                 </div>
               </div>
               </div>
+
+              <style jsx>{`
+                .hero-portrait {
+                  isolation: isolate;
+                  transition: filter 600ms var(--ease-out-expo);
+                }
+                .hero-portrait::before,
+                .hero-portrait::after {
+                  content: "";
+                  position: absolute;
+                  border: 1.5px solid oklch(0.66 0.22 25);
+                  border-radius: 0;
+                  pointer-events: none;
+                  z-index: -1;
+                  transform-origin: center;
+                }
+                /* AT REST: single ring sits on the card edge and breathes
+                   (fade in/out + glow), no expansion. */
+                .hero-portrait::before {
+                  inset: -2px;
+                  animation: hero-portrait-breathe 2.6s ease-in-out infinite;
+                }
+                /* AT REST: second ring is hidden. */
+                .hero-portrait::after {
+                  inset: 0;
+                  opacity: 0;
+                  transform: scale(1);
+                }
+                /* ON HOVER: both rings expand + fade outward, staggered by
+                   half-cycle so a ripple is always visible. Breathing stops. */
+                .hero-portrait:hover::before {
+                  inset: 0;
+                  border-width: 2px;
+                  border-color: oklch(0.72 0.22 25);
+                  animation: hero-portrait-ripple 1.6s
+                    cubic-bezier(0.16, 1, 0.3, 1) infinite;
+                }
+                .hero-portrait:hover::after {
+                  border-width: 2px;
+                  border-color: oklch(0.72 0.22 25);
+                  opacity: 1;
+                  animation: hero-portrait-ripple 1.6s
+                    cubic-bezier(0.16, 1, 0.3, 1) 0.8s infinite;
+                }
+                @keyframes hero-portrait-breathe {
+                  0%,
+                  100% {
+                    opacity: 0.35;
+                    box-shadow: 0 0 0 oklch(0.55 0.22 25 / 0);
+                  }
+                  50% {
+                    opacity: 0.95;
+                    box-shadow:
+                      0 0 28px oklch(0.55 0.22 25 / 0.40),
+                      inset 0 0 14px oklch(0.55 0.22 25 / 0.18);
+                  }
+                }
+                @keyframes hero-portrait-ripple {
+                  0% {
+                    transform: scale(1);
+                    opacity: 0.85;
+                    box-shadow: 0 0 0 oklch(0.55 0.22 25 / 0);
+                  }
+                  100% {
+                    transform: scale(1.20);
+                    opacity: 0;
+                    box-shadow: 0 0 26px oklch(0.55 0.22 25 / 0.25);
+                  }
+                }
+                @media (prefers-reduced-motion: reduce) {
+                  .hero-portrait::before,
+                  .hero-portrait::after {
+                    animation: none;
+                    opacity: 0.4;
+                  }
+                  .hero-portrait {
+                    transition-duration: 0ms;
+                  }
+                }
+              `}</style>
             </div>
           </div>
         </div>

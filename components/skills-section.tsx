@@ -20,8 +20,9 @@ import {
   FaBug,
   FaNetworkWired,
   FaSquareRootAlt,
+  FaShieldAlt,
 } from "react-icons/fa";
-import { GiDragonHead } from "react-icons/gi";
+import { GiDragonHead, GiAnt } from "react-icons/gi";
 import { Flower2 } from "lucide-react";
 import { useReveal } from "@/hooks/use-reveal";
 
@@ -65,6 +66,7 @@ const infraDevops: Skill[] = [
   { name: "PySpark", icon: "devicon-apachespark-original colored" },
   { name: "Grafana", icon: SiGrafana, isReactIcon: true },
   { name: "Prometheus", icon: SiPrometheus, isReactIcon: true },
+  { name: "Locust", icon: GiAnt, isReactIcon: true },
   { name: "Git", icon: "devicon-git-plain colored" },
   { name: "Linux", icon: "devicon-linux-plain" },
   { name: "Next.js", icon: "devicon-nextjs-plain" },
@@ -91,6 +93,7 @@ const languages: Skill[] = [
   { name: "SQL", icon: "devicon-azuresqldatabase-plain colored" },
   { name: "R", icon: "devicon-r-plain colored" },
   { name: "Sage", icon: FaSquareRootAlt, isReactIcon: true },
+  { name: "Dafny", icon: FaShieldAlt, isReactIcon: true },
   { name: "LaTeX", icon: "devicon-latex-original" },
 ];
 
