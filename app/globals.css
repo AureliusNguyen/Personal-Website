@@ -71,8 +71,13 @@
    Default is "Jade Felt". The [data-dark] variants are switchable in dev.
    --------------------------------------------------------------------------- */
 
-/* "Jade Felt". Green owns the surfaces, bone owns the edges, crimson is the
-   only warm thing on the page and therefore the loudest. */
+/* "Jade Felt". Green owns the surfaces, crimson is the only hot colour, and
+   the edges are warm metal rather than bone - a near-white border reads cold
+   and clinical against green, and fights the warmth of the accent.
+   --shadow derives from --border, so the hard offset shadows go warm too.
+
+   The three variants below differ ONLY in edge colour. Everything else is
+   settled. */
 [data-site="v2"].dark {
   color-scheme: dark;
 
@@ -84,40 +89,22 @@
   --main: oklch(65% 0.225 25);
   --main-foreground: oklch(0% 0 0);
 
-  --border: oklch(95% 0.022 165);
-  --ring: oklch(95% 0.022 165);
+  /* Medium copper. Warm and metallic without competing with the crimson. */
+  --border: oklch(72% 0.105 52);
+  --ring: oklch(72% 0.105 52);
   --overlay: oklch(0% 0 0 / 0.8);
 }
 
-/* "Lacquer". Near-black neutral surfaces, saturated jade in the borders and
-   hard shadows only. The two colours never touch the same surface, so both
-   stay fully saturated instead of averaging into each other. */
-[data-site="v2"].dark[data-dark="lacquer"] {
-  --background: oklch(15% 0.008 165);
-  --secondary-background: oklch(23% 0.014 165);
-  --foreground: oklch(96% 0.004 160);
-  --foreground-muted: oklch(80% 0.014 165);
-
-  --main: oklch(66% 0.225 26);
-  --main-foreground: oklch(0% 0 0);
-
-  --border: oklch(80% 0.155 165);
-  --ring: oklch(80% 0.155 165);
+/* Brighter, more orange. Loudest of the three edges. */
+[data-site="v2"].dark[data-dark="amber"] {
+  --border: oklch(80% 0.145 70);
+  --ring: oklch(80% 0.145 70);
 }
 
-/* "Jade Table". The middle reading: jade-black surfaces with pale jade edges,
-   so green is present everywhere at low volume and crimson still leads. */
-[data-site="v2"].dark[data-dark="table"] {
-  --background: oklch(16.5% 0.03 168);
-  --secondary-background: oklch(24.5% 0.038 168);
-  --foreground: oklch(95% 0.012 162);
-  --foreground-muted: oklch(79% 0.024 166);
-
-  --main: oklch(64% 0.22 25);
-  --main-foreground: oklch(0% 0 0);
-
-  --border: oklch(91% 0.07 165);
-  --ring: oklch(91% 0.07 165);
+/* Muted brass. Furthest from crimson in hue, so the two never blur. */
+[data-site="v2"].dark[data-dark="brass"] {
+  --border: oklch(78% 0.095 88);
+  --ring: oklch(78% 0.095 88);
 }
 
 /* ---------------------------------------------------------------------------

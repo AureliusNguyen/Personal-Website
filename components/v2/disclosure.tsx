@@ -23,8 +23,11 @@ export function Disclosure({
           className="size-4 shrink-0 transition-transform duration-200 group-open:rotate-180"
         />
         <span className="font-heading">{summary}</span>
+        {/* Reads like a notification badge: the count says "there are N things
+            you have not seen", so it clears once you open and see them, and
+            comes back when collapsed. */}
         {typeof count === "number" && (
-          <span className="ml-auto rounded-base border-2 border-border bg-main px-1.5 text-xs text-main-foreground">
+          <span className="ml-auto rounded-base border-2 border-border bg-main px-1.5 text-xs text-main-foreground group-open:hidden">
             {count}
           </span>
         )}

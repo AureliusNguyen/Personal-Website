@@ -11,10 +11,11 @@ import { useTheme } from "next-themes";
  * Delete this file, its import in app/(v2)/layout.tsx, and the two losing
  * [data-dark] blocks in globals.css once a palette is chosen.
  */
+// Jade Felt is settled. These differ only in the border/shadow colour.
 const PALETTES = [
-  { id: "felt", label: "Jade Felt", swatch: "#0b2b23", edge: "#f2f7f3" },
-  { id: "lacquer", label: "Lacquer", swatch: "#0d1210", edge: "#7fd9b4" },
-  { id: "table", label: "Jade Table", swatch: "#07231d", edge: "#cdeadd" },
+  { id: "felt", label: "Copper", swatch: "#0b2b23", edge: "#cf8b5d" },
+  { id: "amber", label: "Amber", swatch: "#0b2b23", edge: "#f0a64a" },
+  { id: "brass", label: "Brass", swatch: "#0b2b23", edge: "#d6b487" },
 ] as const;
 
 const KEY = "dark-palette";
@@ -51,7 +52,7 @@ export function PaletteLab() {
   return (
     <div className="fixed bottom-4 left-4 z-[90] rounded-base border-2 border-border bg-secondary-background p-2 text-foreground shadow-shadow">
       <p className="px-1 pb-2 text-[10px] uppercase tracking-widest opacity-70">
-        Dark palette (dev only)
+        Edge colour (dev only)
       </p>
       <div className="flex flex-col gap-1">
         {PALETTES.map((p) => (

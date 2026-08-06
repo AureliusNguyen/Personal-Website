@@ -22,8 +22,8 @@ export const profile = {
     "I am an Integrated BS/MS Computer Science student at the University of Minnesota, and I spend most weekends on CTF competitions, mostly reverse engineering and cryptography.",
   ],
 
-  availability:
-    "Open to AI/ML engineering roles and research collaborations. The fastest way to reach me is email.",
+  // prettier-ignore
+  availability: "Open to AI/ML engineering roles and research collaborations. The fastest way to reach me is email.",
 
   lastUpdated: "August 2026",
 } as const;
