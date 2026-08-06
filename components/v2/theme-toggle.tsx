@@ -36,7 +36,7 @@ export function ThemeToggle() {
           : "Toggle colour theme"
       }
       title={mounted ? `Switch to ${isDark ? "light" : "dark"} mode` : undefined}
-      className="grid size-11 shrink-0 place-items-center rounded-base border-2 border-border bg-main text-main-foreground shadow-shadow transition-all duration-150 hover:translate-x-boxShadowX hover:translate-y-boxShadowY hover:shadow-none active:translate-x-boxShadowX active:translate-y-boxShadowY active:shadow-none active:scale-[0.95] focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+      className="grid size-11 shrink-0 cursor-pointer place-items-center rounded-base border-2 border-border bg-main text-main-foreground shadow-shadow transition-all duration-150 hover:translate-x-boxShadowX hover:translate-y-boxShadowY hover:shadow-none active:translate-x-boxShadowX active:translate-y-boxShadowY active:shadow-none active:scale-[0.95] focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
     >
       {/* Both icons render; visibility is driven by the theme class so the
           correct one is already painted before hydration finishes. */}

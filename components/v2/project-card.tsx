@@ -12,6 +12,40 @@ function localImage(project: Project) {
   return project.image?.startsWith("/") ? project.image : undefined;
 }
 
+function ProjectLink({
+  href,
+  label,
+  primary = false,
+}: {
+  href: string;
+  label: string;
+  primary?: boolean;
+}) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noreferrer"
+      className={[
+        "group inline-flex h-11 flex-1 items-center gap-2 rounded-base border-2 border-border px-3 text-sm shadow-shadow",
+        "cursor-pointer transition-all duration-150",
+        "hover:translate-x-boxShadowX hover:translate-y-boxShadowY hover:shadow-none",
+        "active:translate-x-boxShadowX active:translate-y-boxShadowY active:shadow-none active:scale-[0.98]",
+        "focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+        primary
+          ? "bg-main text-main-foreground"
+          : "bg-background text-foreground",
+      ].join(" ")}
+    >
+      <span className="font-heading">{label}</span>
+      <ArrowUpRight
+        weight="bold"
+        className="ml-auto size-4 shrink-0 transition-transform duration-150 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+      />
+    </a>
+  );
+}
+
 export function ProjectCard({
   project,
   featured = false,
@@ -88,21 +122,15 @@ export function ProjectCard({
             </ul>
           </Disclosure>
 
-          {project.link && (
-            <a
-              href={project.link}
-              target="_blank"
-              rel="noreferrer"
-              className="group flex h-11 items-center gap-2 rounded-base border-2 border-border bg-main px-3 text-sm text-main-foreground shadow-shadow transition-all duration-150 hover:translate-x-boxShadowX hover:translate-y-boxShadowY hover:shadow-none active:translate-x-boxShadowX active:translate-y-boxShadowY active:shadow-none active:scale-[0.98] focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-            >
-              <span className="font-heading">
-                {project.link.includes("github.com") ? "Source" : "Live site"}
-              </span>
-              <ArrowUpRight
-                weight="bold"
-                className="ml-auto size-4 shrink-0 transition-transform duration-150 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-              />
-            </a>
+          {(project.demo || project.repo) && (
+            <div className="flex flex-wrap gap-2">
+              {project.demo && (
+                <ProjectLink href={project.demo} label="Live app" primary />
+              )}
+              {project.repo && (
+                <ProjectLink href={project.repo} label="Source" />
+              )}
+            </div>
           )}
         </div>
       </div>

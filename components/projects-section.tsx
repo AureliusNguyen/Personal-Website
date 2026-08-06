@@ -241,16 +241,16 @@ function ProjectCardFront({
               );
             })()}
             <a
-              href={project.link ?? "#"}
-              target={project.link ? "_blank" : undefined}
-              rel={project.link ? "noreferrer" : undefined}
-              aria-disabled={!project.link}
+              href={project.demo ?? project.repo ?? "#"}
+              target={project.demo ?? project.repo ? "_blank" : undefined}
+              rel={project.demo ?? project.repo ? "noreferrer" : undefined}
+              aria-disabled={!(project.demo ?? project.repo)}
               onClick={(e) => {
                 e.stopPropagation();
-                if (!project.link) e.preventDefault();
+                if (!(project.demo ?? project.repo)) e.preventDefault();
               }}
               className={`absolute top-3 right-3 z-10 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md font-mono text-[10px] uppercase tracking-wider transition-colors backdrop-blur-sm ${
-                project.link
+                project.demo ?? project.repo
                   ? "text-foreground/85 hover:text-primary cursor-pointer"
                   : "text-muted-foreground cursor-not-allowed opacity-70"
               }`}

@@ -5,8 +5,11 @@ export type Project = {
   tag: string;
   blurb: string;
   highlights: string[];
+  /** Deployed, reachable app. Verified live before being listed here. */
+  demo?: string;
+  /** Public source. */
+  repo?: string;
   tech: string[];
-  link?: string;
   image?: string;
   imageAlt?: string;
 };
@@ -58,6 +61,8 @@ export const projects: Project[] = [
       "Drove server throughput locally from 25,000 to 185,000 ops/sec across 4 implementations spanning Python asyncio, uvloop, C with edge-triggered epoll, and C with io_uring.",
       "Deployed the project on Vercel as a Next.js app that runs the C protocol parser in-browser via WebAssembly.",
     ],
+    demo: "https://l33t-kv.vercel.app",
+    repo: "https://github.com/AureliusNguyen/L33t-KV",
     tech: ["C", "WebAssembly", "Next.js"],
     image: "/images/l33t-kv.png",
     imageAlt: "L33t KV Store project screenshot",
@@ -74,8 +79,9 @@ export const projects: Project[] = [
       "Shipped a live app with Next.js and Vercel against a Dockerized FastAPI inference service on HuggingFace Spaces, delivering <3 seconds end-to-end predictions to users across 3 switchable models per request.",
       "Built an explainability layer pairing TensorFlow GradientTape saliency maps with Gemini 2.5 multimodal LLM analysis to catch bias in 99%-accurate models that would have failed clinical audit despite high accuracy.",
     ],
+    demo: "https://neuroscan-atlas.vercel.app/",
+    repo: "https://github.com/AureliusNguyen/Neuroscan",
     tech: ["TensorFlow", "Gemini", "Next.js"],
-    link: "https://neuroscan-atlas.vercel.app/",
     image: "/images/neuroscan.png",
     imageAlt: "NeuroScan project screenshot",
   },
@@ -91,8 +97,8 @@ export const projects: Project[] = [
       "Clerk-backed multi-factor auth and Convex for real-time data + chat synchronization, eliminating manual cache invalidation and reducing race conditions in shared rooms.",
       "Llama-guard via Groq runs inline chat moderation, flagging policy-violating messages before they reach other users — a privacy-first content layer at the edge.",
     ],
+    repo: "https://github.com/AureliusNguyen/Violet",
     tech: ["Next.js", "WebSocket", "Clerk", "Convex", "Shadcn", "Groq"],
-    link: "https://github.com/AureliusNguyen/Violet",
     image: "/images/discord-cover.svg",
     imageAlt: "Discord logo on a blurple gradient",
   },
@@ -108,8 +114,8 @@ export const projects: Project[] = [
       "Upstash Redis caches scrape results and a RAG pipeline summarizes long pages — ~50% engagement lift and ~3s end-to-end response time on the average page.",
       "Next.js + Vercel SSR deployment for fast cold starts, scalable rollouts, and zero-config previews on every PR.",
     ],
+    demo: "https://nanao-chan.vercel.app/",
     tech: ["Next.js", "Redis", "Upstash", "Groq API", "Puppeteer", "Cheerio"],
-    link: "https://nanao-chan.vercel.app/",
     image:
       "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=900&q=80&auto=format&fit=crop",
     imageAlt: "Stylized AI chatbot interface",
@@ -126,8 +132,9 @@ export const projects: Project[] = [
       "Shipped a Next.js app on Vercel against a Dockerized FastAPI service on Hugging Face Spaces, delivering sub-second predictions and a live what-if explorer that re-runs the ensemble and SHAP on every slider change.",
       "Paired SHAP TreeExplainer with Groq Llama 4 Scout to translate probabilities into 3-sentence risk explanations and retention emails for relationship managers with no ML expertise.",
     ],
+    demo: "https://the-churn-report.vercel.app",
+    repo: "https://github.com/AureliusNguyen/The-Churn-Report",
     tech: ["XGBoost", "Scikit-learn", "Llama", "Next.js"],
-    link: "https://github.com/AureliusNguyen/Churn-ML",
     image: "/images/the-churn-report.png",
     imageAlt: "The Churn Report project screenshot",
   },
@@ -143,8 +150,8 @@ export const projects: Project[] = [
       "Supabase auth + persistence for per-user decks, study history, and cross-device sync — no custom backend needed, RLS enforces per-user data isolation.",
       "Next.js + Vercel deployment with continuous delivery and Clerk-managed sign-in flows; minimal downtime through preview deployments per PR.",
     ],
+    repo: "https://github.com/AureliusNguyen/Flashcard",
     tech: ["Next.js", "Groq", "Supabase", "Clerk", "Langchain", "OpenAI"],
-    link: "https://ai-flashcard-one.vercel.app/",
     image: "/images/flashcards-cover.svg",
     imageAlt: "Stack of paper flashcards with Q and A",
   },

@@ -98,7 +98,7 @@ export function SiteNav() {
             aria-expanded={open}
             aria-controls="mobile-nav"
             aria-label={open ? "Close menu" : "Open menu"}
-            className="grid size-11 shrink-0 place-items-center rounded-base border-2 border-border bg-secondary-background text-foreground shadow-shadow transition-all duration-150 active:translate-x-boxShadowX active:translate-y-boxShadowY active:shadow-none focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background md:hidden"
+            className="grid size-11 shrink-0 cursor-pointer place-items-center rounded-base border-2 border-border bg-secondary-background text-foreground shadow-shadow transition-all duration-150 active:translate-x-boxShadowX active:translate-y-boxShadowY active:shadow-none focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background md:hidden"
           >
             {open ? (
               <X size={20} weight="bold" aria-hidden />
