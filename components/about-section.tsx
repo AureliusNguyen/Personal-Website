@@ -4,81 +4,13 @@ import { useState } from "react";
 import { Plus, ChevronUp } from "lucide-react";
 import { Badge } from "./ui/badge";
 import { useReveal } from "@/hooks/use-reveal";
-
-const expertise = [
-  "Machine Learning",
-  "MLOps on AWS",
-  "Federated & Distributed Learning",
-  "Automated Reasoning",
-  "Natural Language Processing",
-  "Computer Vision",
-  "AI Engineering",
-  "Agentic Systems",
-  "Cryptography",
-];
-
-const coursework = [
-  "Cryptography",
-  "Federated Learning",
-  "Deep Learning",
-  "MLOps on AWS",
-  "Algorithms & Data Structures",
-  "Data Science",
-  "Cyber Security",
-  "Cloud Computing",
-  "Event-Driven & Real-Time Architecture",
-  "Parallel Computing",
-  "Quantum Computing",
-];
-
-type Experience = {
-  id: string;
-  period: string;
-  title: string;
-  org: string;
-  location: string;
-  points: string[];
-};
-
-// Newest first - easy to extend later. Order drives the rail timeline.
-const experiences: Experience[] = [
-  {
-    id: "fl-security",
-    period: "Oct 2025 – Present",
-    title: "Research Assistant - Federated Learning Security",
-    org: "UMN Distributed Machine Learning Systems Lab",
-    location: "Minneapolis, MN · NSF-funded ($1.1M, 3yr)",
-    points: [
-      "Joined a 3-year, $1.1M NSF-funded effort (PI: Dr. Ali Anwar) on privacy-preserving federated learning systems - extending a hook-based FL testbed with pre/post-training interception via `FL_HOOK` interfaces so attacks, defenses, and config plug-ins ship without forking the core training loop.",
-      "Implemented privacy attacks and robustness defenses as drop-in plugins. Collapsed experiment turnaround from days to hours. Lets the team explore adversarial-ML configurations that were previously infeasible.",
-    ],
-  },
-  {
-    id: "ml-rsa",
-    period: "Sep 2025 – Present",
-    title: "Undergraduate Research Award - ML for RSA Factorization",
-    org: "UMN Distributed Machine Learning Systems Lab",
-    location: "Minneapolis, MN · $2K UROP grant",
-    points: [
-      "Awarded a $2K UROP grant under Dr. Ali Anwar to study neural approaches to RSA semiprime factorization - designed and trained 4 architectures (Dual-Output LSTM, Enhanced Transformer, Hybrid CNN-RNN, Factorization GAN) across 4 dataset scales (10–20 bit semiprimes) on AWS SageMaker.",
-      "Engineered 107–117-dimensional number-theoretic feature vectors using ECPP and GNFS signals - 50–63% exact-match accuracy and a 548× lift over random chance, evidence that neural networks can recover genuine number-theoretic structure rather than overfit noise.",
-      "First documented Transformer application to RSA factorization with multi-head attention - 52.7% exact match and 91.6% accuracy within 4-bit tolerance on a 210K-semiprime dataset.",
-      "Designed a parameter-efficient Factorization GAN (~700K params, 4.6× smaller than the Transformer at 3.26M) that trained in 2.5 hours for 500 epochs and matched 53.7% exact-match - evidence adversarial training is competitive on mathematical-constraint satisfaction tasks.",
-    ],
-  },
-  {
-    id: "headstarter",
-    period: "June 2024 – October 2024",
-    title: "AI Engineer Intern",
-    org: "Headstarter AI",
-    location: "New York, NY",
-    points: [
-      "Shipped 14+ end-to-end ML, AI-engineering, and full-stack applications under cohort-tight deadlines - production-grade prototypes spanning RAG, multi-agent NLP, LLM tooling, and real-time UX.",
-      "Engineered a multi-agent NLP pipeline with few-shot prompting and RAG that lifted response quality by ~200% on internal eval. Placed Top 20 / 1,500 at the company hackathon.",
-      "Mentored by engineers from Amazon, Google, Two Sigma, Figma, Capital One, and Stanford - translated their feedback into a personal review playbook that I now apply across research and engineering work.",
-    ],
-  },
-];
+import {
+  coursework,
+  education,
+  experiences,
+  expertise,
+  type Experience,
+} from "@/lib/content/experience";
 
 const SUITS = ["♥","♦", "♣", "♠"] as const;
 const REVEAL_BATCH = 2;
@@ -146,13 +78,13 @@ export function AboutSection() {
             Education
           </span>
           <h3 className="font-display text-2xl mt-2 mb-4 text-foreground">
-            Integrated BS / MS in Computer Science
+            {education.degree}
           </h3>
           <div className="space-y-1 text-sm text-muted-foreground">
-            <p className="text-foreground">
-              University of Minnesota, Twin Cities
+            <p className="text-foreground">{education.school}</p>
+            <p>
+              GPA {education.gpa} · {education.period}
             </p>
-            <p>GPA 3.8 / 4.0 · May 2023 – Expected May 2027</p>
           </div>
 
           <div className="mt-6">

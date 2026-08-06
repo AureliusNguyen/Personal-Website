@@ -1,65 +1,9 @@
 "use client";
 
-import {
-  FaMapMarkerAlt,
-  FaEnvelope,
-  FaGithub,
-  FaLinkedin,
-  FaDiscord,
-} from "react-icons/fa";
 import { useReveal } from "@/hooks/use-reveal";
-
-type Channel = {
-  rank: string;
-  suit: "♠" | "♥" | "♦" | "♣";
-  label: string;
-  value: string;
-  href?: string;
-  icon: React.ReactNode;
-};
+import { channels, type Channel } from "@/lib/content/contact";
 
 const ICON_CLASS = "w-10 h-10";
-
-const channels: Channel[] = [
-  {
-    rank: "10",
-    suit: "♠",
-    label: "Location",
-    value: "Minneapolis, MN",
-    icon: <FaMapMarkerAlt className={ICON_CLASS} />,
-  },
-  {
-    rank: "J",
-    suit: "♥",
-    label: "Email",
-    value: "nguy5272@umn.edu",
-    href: "mailto:nguy5272@umn.edu",
-    icon: <FaEnvelope className={ICON_CLASS} />,
-  },
-  {
-    rank: "Q",
-    suit: "♦",
-    label: "GitHub",
-    value: "View my projects",
-    href: "https://github.com/AureliusNguyen",
-    icon: <FaGithub className={ICON_CLASS} />,
-  },
-  {
-    rank: "K",
-    suit: "♣",
-    label: "LinkedIn",
-    value: "Connect with me",
-    href: "https://linkedin.com/in/aurelius-nguyen",
-    icon: <FaLinkedin className={ICON_CLASS} />,
-  },
-  {
-    rank: "A",
-    suit: "♠",
-    label: "Discord",
-    value: "_Madarame_",
-    icon: <FaDiscord className={ICON_CLASS} />,
-  },
-];
 
 export function ContactSection() {
   const headerRef = useReveal<HTMLDivElement>();
@@ -155,7 +99,7 @@ function ChannelTile({ channel }: { channel: Channel }) {
       {/* Centered icon */}
       <div className="flex-1 grid place-items-center">
         <span className="text-primary transition-transform duration-500 group-hover:-translate-y-1 group-hover:scale-110">
-          {channel.icon}
+          <channel.Icon className={ICON_CLASS} />
         </span>
       </div>
 
