@@ -47,7 +47,8 @@ export function Navigation() {
   return (
     <nav
       className={[
-        "fixed top-0 left-0 right-0 z-50",
+        // top-9 clears the fixed "archived v1" banner above it.
+        "fixed top-9 left-0 right-0 z-50",
         "backdrop-blur-xl backdrop-saturate-150",
         "border-b transition-all duration-500 ease-out will-change-transform",
         isScrolled ? "border-[var(--border-strong)]" : "border-transparent",

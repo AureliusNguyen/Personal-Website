@@ -3,54 +3,67 @@
 
 @custom-variant dark (&:is(.dark *));
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-inter);
-  --font-mono: var(--font-jetbrains);
-  --font-display: var(--font-cormorant);
-  --color-sidebar-ring: var(--sidebar-ring);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar: var(--sidebar);
-  --color-chart-5: var(--chart-5);
-  --color-chart-4: var(--chart-4);
-  --color-chart-3: var(--chart-3);
-  --color-chart-2: var(--chart-2);
-  --color-chart-1: var(--chart-1);
-  --color-ring: var(--ring);
-  --color-input: var(--input);
-  --color-border: var(--border);
-  --color-border-strong: var(--border-strong);
-  --color-destructive: var(--destructive);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-accent: var(--accent);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-muted: var(--muted);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-secondary: var(--secondary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-primary: var(--primary);
-  --color-primary-glow: var(--primary-glow);
-  --color-primary-deep: var(--primary-deep);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-popover: var(--popover);
-  --color-card-foreground: var(--card-foreground);
-  --color-card: var(--card);
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-}
+/* ===========================================================================
+   TWO SITES, ONE STYLESHEET
+
+   `:root` carries the current site (neobrutalism, crimson preset).
+   `[data-site="v1"]` re-declares the archived noir palette on its own <html>.
+
+   This works because Tailwind v4's `@theme inline` compiles a utility to a
+   var() *lookup* rather than a literal value, so `bg-background` resolves
+   against whichever tokens are in scope at the element. Same class, two
+   themes, no !important and no duplicated utility layer.
+
+   Font families go through an `--app-*` indirection: `@theme inline` can only
+   alias `--font-sans` to one variable name, but each document loads different
+   next/font faces. Each <html> maps its own faces onto the shared names.
+   =========================================================================== */
 
 :root {
+  /* Neobrutalism structural tokens */
+  --border-radius: 5px;
+  --box-shadow-x: 4px;
+  --box-shadow-y: 4px;
+  --reverse-box-shadow-x: -4px;
+  --reverse-box-shadow-y: -4px;
+  --base-font-weight: 500;
+  --heading-font-weight: 700;
+
+  /* Crimson preset (neobrutalism.dev "red", light) */
+  --background: oklch(93.3% 0.0339 17.77);
+  --secondary-background: oklch(100% 0 0);
+  --foreground: oklch(0% 0 0);
+  --main: oklch(67.28% 0.2147 24.22);
+  --main-foreground: oklch(0% 0 0);
+  --border: oklch(0% 0 0);
+  --ring: oklch(0% 0 0);
+  --overlay: oklch(0% 0 0 / 0.8);
+  --shadow: var(--box-shadow-x) var(--box-shadow-y) 0px 0px var(--border);
+
+  /* A dimmer ink for secondary copy. Neobrutalism has no muted token, and
+     pure black at small sizes reads as a wall of text. */
+  --foreground-muted: oklch(38% 0.012 25);
+}
+
+[data-site="v2"] {
+  color-scheme: light;
+  --app-sans: var(--font-public-sans);
+  --app-display: var(--font-archivo);
+}
+
+/* ---------------------------------------------------------------------------
+   v1: the archived noir/crimson poker-table palette. These were the `:root`
+   tokens of the original site, moved verbatim under a scope.
+   --------------------------------------------------------------------------- */
+[data-site="v1"] {
+  color-scheme: dark;
+  --app-sans: var(--font-inter);
+  --app-display: var(--font-cormorant);
+  --app-mono: var(--font-jetbrains);
+
   --radius: 0.625rem;
 
-  /* Surfaces — deep noir */
+  /* Surfaces - deep noir */
   --background: oklch(0.04 0.005 25);
   --foreground: oklch(0.96 0 0);
   --card: oklch(0.07 0.01 25);
@@ -77,7 +90,7 @@
   --input: oklch(0.20 0.01 25);
   --ring: oklch(0.55 0.22 25);
 
-  /* Charts (kept) */
+  /* Charts */
   --chart-1: oklch(0.55 0.22 25);
   --chart-2: oklch(0.6 0.15 30);
   --chart-3: oklch(0.5 0.18 20);
@@ -107,34 +120,73 @@
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.dark {
-  /* Site is dark-only — mirror :root */
-  --background: oklch(0.04 0.005 25);
-  --foreground: oklch(0.96 0 0);
-  --card: oklch(0.07 0.01 25);
-  --card-foreground: oklch(0.96 0 0);
-  --popover: oklch(0.07 0.01 25);
-  --popover-foreground: oklch(0.96 0 0);
-  --primary: oklch(0.55 0.22 25);
-  --primary-foreground: oklch(0.98 0 0);
-  --secondary: oklch(0.10 0.005 25);
-  --secondary-foreground: oklch(0.96 0 0);
-  --muted: oklch(0.14 0.005 25);
-  --muted-foreground: oklch(0.65 0 0);
-  --accent: oklch(0.55 0.22 25);
-  --accent-foreground: oklch(0.98 0 0);
-  --destructive: oklch(0.55 0.22 25);
-  --border: oklch(0.20 0.01 25);
-  --input: oklch(0.20 0.01 25);
-  --ring: oklch(0.55 0.22 25);
-  --sidebar: oklch(0.07 0.01 25);
-  --sidebar-foreground: oklch(0.96 0 0);
-  --sidebar-primary: oklch(0.55 0.22 25);
-  --sidebar-primary-foreground: oklch(0.98 0 0);
-  --sidebar-accent: oklch(0.14 0.005 25);
-  --sidebar-accent-foreground: oklch(0.96 0 0);
-  --sidebar-border: oklch(0.20 0.01 25);
-  --sidebar-ring: oklch(0.55 0.22 25);
+/* ===========================================================================
+   Theme map. Union of both sites' aliases - a utility is only emitted if some
+   template actually uses it, so the unused half costs nothing.
+   =========================================================================== */
+@theme inline {
+  /* Shared / neobrutalism */
+  --color-background: var(--background);
+  --color-secondary-background: var(--secondary-background);
+  --color-foreground: var(--foreground);
+  --color-foreground-muted: var(--foreground-muted);
+  --color-main: var(--main);
+  --color-main-foreground: var(--main-foreground);
+  --color-border: var(--border);
+  --color-overlay: var(--overlay);
+  --color-ring: var(--ring);
+
+  --spacing-boxShadowX: var(--box-shadow-x);
+  --spacing-boxShadowY: var(--box-shadow-y);
+  --spacing-reverseBoxShadowX: var(--reverse-box-shadow-x);
+  --spacing-reverseBoxShadowY: var(--reverse-box-shadow-y);
+
+  --radius-base: var(--border-radius);
+  --shadow-shadow: var(--shadow);
+
+  --font-weight-base: var(--base-font-weight);
+  --font-weight-heading: var(--heading-font-weight);
+
+  /* Fonts, resolved per document */
+  --font-sans: var(--app-sans);
+  --font-mono: var(--app-mono);
+  --font-display: var(--app-display);
+
+  /* v1 only */
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-glow: var(--primary-glow);
+  --color-primary-deep: var(--primary-deep);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border-strong: var(--border-strong);
+  --color-input: var(--input);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
 }
 
 @layer base {
@@ -143,40 +195,69 @@
   }
 
   html {
-    /* Lenis controls smooth scroll; keep CSS fallback off so it doesn't fight the engine */
+    /* v1 hands scrolling to Lenis; v2 wants the browser default. Neither
+       wants CSS smooth-scroll fighting the engine. */
     scroll-behavior: auto;
   }
 
-  body {
+  /* ---- current site ---- */
+  [data-site="v2"] body {
     @apply bg-background text-foreground;
-    font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+    font-family: var(--app-sans), ui-sans-serif, system-ui, sans-serif;
+    font-weight: var(--base-font-weight);
   }
 
-  h1, h2, h3 {
-    font-family: var(--font-cormorant), ui-serif, Georgia, serif;
+  [data-site="v2"] h1,
+  [data-site="v2"] h2,
+  [data-site="v2"] h3,
+  [data-site="v2"] h4 {
+    font-family: var(--app-display), ui-sans-serif, system-ui, sans-serif;
+    font-weight: var(--heading-font-weight);
     letter-spacing: -0.02em;
   }
 
-  ::selection {
+  [data-site="v2"] ::selection {
+    background: var(--main);
+    color: var(--main-foreground);
+  }
+
+  /* ---- archived v1 ---- */
+  [data-site="v1"] body {
+    @apply bg-background text-foreground;
+    font-family: var(--app-sans), ui-sans-serif, system-ui, sans-serif;
+  }
+
+  [data-site="v1"] h1,
+  [data-site="v1"] h2,
+  [data-site="v1"] h3 {
+    font-family: var(--app-display), ui-serif, Georgia, serif;
+    letter-spacing: -0.02em;
+  }
+
+  [data-site="v1"] ::selection {
     background: oklch(0.55 0.22 25 / 0.40);
     color: var(--foreground);
   }
 
-  /* Slim red-gradient scrollbar */
-  ::-webkit-scrollbar { width: 10px; height: 10px; }
-  ::-webkit-scrollbar-track { background: var(--background); }
-  ::-webkit-scrollbar-thumb {
+  /* Slim red-gradient scrollbar - v1 signature, must not leak */
+  [data-site="v1"] ::-webkit-scrollbar { width: 10px; height: 10px; }
+  [data-site="v1"] ::-webkit-scrollbar-track { background: var(--background); }
+  [data-site="v1"] ::-webkit-scrollbar-thumb {
     background: var(--gradient-red);
     border-radius: 8px;
     border: 2px solid var(--background);
   }
-  ::-webkit-scrollbar-thumb:hover {
+  [data-site="v1"] ::-webkit-scrollbar-thumb:hover {
     background: linear-gradient(135deg, var(--primary), var(--primary-glow));
   }
 }
 
+/* ===========================================================================
+   v1-only component classes. Nothing in the current site uses these; they are
+   kept intact so the archive renders exactly as it always did.
+   =========================================================================== */
 @layer components {
-  /* Faint 56px poker-table grid backdrop — never interactive */
+  /* Faint 56px poker-table grid backdrop - never interactive */
   .bg-grid {
     background-image:
       linear-gradient(to right, oklch(1 0 0 / 0.04) 1px, transparent 1px),
@@ -284,7 +365,7 @@
     transform: none;
   }
 
-  /* 3D card-flip primitives — used by hero, manifesto, projects */
+  /* 3D card-flip primitives - used by hero, manifesto, projects */
   .flip-card {
     transform-style: preserve-3d;
     perspective: 1400px;
@@ -300,7 +381,7 @@
   }
 }
 
-/* Deal-in — used by the experience timeline cards (about-section) */
+/* Deal-in - used by the experience timeline cards (about-section) */
 @keyframes deal-in {
   0% {
     opacity: 0;
@@ -327,15 +408,15 @@
   }
 }
 
-/* Wave-out — used by hero profile rings */
+/* Wave-out - used by hero profile rings */
 @keyframes wave-out {
   0%   { transform: scale(1);   opacity: 0.5; }
   100% { transform: scale(1.8); opacity: 0;   }
 }
 .animate-wave-out { animation: wave-out 2s ease-out infinite; }
 
-/* Royal-flush "lub-dub" heartbeat — two quick beats, then a 1s pause.
-   Cycle = 1.6s: pulses peak at ~160ms and ~480ms, rest from 800ms→end. */
+/* Royal-flush "lub-dub" heartbeat - two quick beats, then a 1s pause.
+   Cycle = 1.6s: pulses peak at ~160ms and ~480ms, rest from 800ms to end. */
 @keyframes royal-pulse {
   0%   { transform: scale(1); }
   10%  { transform: scale(1.08); }   /* lub */
@@ -362,4 +443,14 @@
     animation-duration: 0.001ms !important;
   }
   .animate-wave-out { animation: none; }
+
+  /* The current site's only motion is hover/press feedback. Collapse it
+     rather than half-animating. */
+  [data-site="v2"] *,
+  [data-site="v2"] *::before,
+  [data-site="v2"] *::after {
+    transition-duration: 0.001ms !important;
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+  }
 }
