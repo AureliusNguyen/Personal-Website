@@ -52,32 +52,20 @@
 }
 
 /* ---------------------------------------------------------------------------
-   Dark mode. next-themes puts `.dark` on the same <html> that carries
-   data-site, hence the compound selector.
+   Dark mode: "Jade Felt". next-themes puts `.dark` on the same <html> that
+   carries data-site, hence the compound selector.
 
-   The border inverts to near-white here rather than staying black. A 2px
-   black border and a 4px black shadow on a dark page are invisible, which
-   throws away the entire neobrutalist language - the hard edge IS the style.
-   Inverting keeps the edges loud in both themes. `--shadow` derives from
-   `--border`, so the offset shadow inverts with it for free.
+   Jade sits near hue 165 and crimson near 25 - far enough apart to read as
+   two deliberate colours rather than one muddy wash, and the pairing keeps a
+   line back to the v1 site's poker-table idea of red on green felt.
+
+   Green owns the surfaces and crimson is the only hot colour, so it leads.
+   The edges are warm copper rather than bone: a near-white border cannot stay
+   black (2px of black on a dark page is invisible and throws away the
+   neobrutalist hard edge, which IS the style), but near-white reads cold and
+   clinical against green and fights the accent. `--shadow` derives from
+   `--border`, so the hard offset shadows warm up with it for free.
    --------------------------------------------------------------------------- */
-/* ---------------------------------------------------------------------------
-   Dark palettes: red and jade.
-
-   Jade sits near hue 165, crimson near 25. They are far enough apart to read
-   as two deliberate colours rather than a wash, and the pairing keeps a line
-   back to the v1 site's poker-table idea (red on green felt).
-
-   Default is "Jade Felt". The [data-dark] variants are switchable in dev.
-   --------------------------------------------------------------------------- */
-
-/* "Jade Felt". Green owns the surfaces, crimson is the only hot colour, and
-   the edges are warm metal rather than bone - a near-white border reads cold
-   and clinical against green, and fights the warmth of the accent.
-   --shadow derives from --border, so the hard offset shadows go warm too.
-
-   The three variants below differ ONLY in edge colour. Everything else is
-   settled. */
 [data-site="v2"].dark {
   color-scheme: dark;
 
@@ -95,17 +83,6 @@
   --overlay: oklch(0% 0 0 / 0.8);
 }
 
-/* Brighter, more orange. Loudest of the three edges. */
-[data-site="v2"].dark[data-dark="amber"] {
-  --border: oklch(80% 0.145 70);
-  --ring: oklch(80% 0.145 70);
-}
-
-/* Muted brass. Furthest from crimson in hue, so the two never blur. */
-[data-site="v2"].dark[data-dark="brass"] {
-  --border: oklch(78% 0.095 88);
-  --ring: oklch(78% 0.095 88);
-}
 
 /* ---------------------------------------------------------------------------
    v1: the archived noir/crimson poker-table palette. These were the `:root`

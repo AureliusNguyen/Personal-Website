@@ -4,7 +4,6 @@ import "../globals.css";
 import { SiteNav } from "@/components/v2/site-nav";
 import { SiteFooter } from "@/components/v2/site-footer";
 import { ThemeProvider } from "@/components/v2/theme-provider";
-import { PaletteLab } from "@/components/v2/palette-lab";
 import { profile } from "@/lib/content/profile";
 
 // Root layout for the current site. The archived v1 site has its own root
@@ -79,8 +78,6 @@ export default function RootLayout({
             {children}
           </main>
           <SiteFooter />
-          {/* Temporary: dev-only dark-palette switcher. Remove once chosen. */}
-          <PaletteLab />
         </ThemeProvider>
       </body>
     </html>
