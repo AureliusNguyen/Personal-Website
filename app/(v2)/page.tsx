@@ -92,9 +92,9 @@ export default function Home() {
           </Link>
         </div>
 
-        <div className="mt-8 grid gap-6">
+        <div className="mt-8 grid gap-8 md:gap-10">
           <ProjectCard project={lead} featured />
-          <div className="grid gap-6 md:grid-cols-2">
+          <div className="grid gap-8 md:grid-cols-2 md:gap-10">
             {rest.map((p) => (
               <ProjectCard key={p.id} project={p} />
             ))}

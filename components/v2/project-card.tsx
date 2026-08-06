@@ -60,7 +60,11 @@ export function ProjectCard({
     <PaperStack>
       <article
         className={[
-          "flex h-full flex-col overflow-hidden rounded-base border-2 border-border bg-secondary-background text-foreground shadow-shadow",
+          // The shadow drops on hover. It points down-right, so once the card
+          // slides up-left off the stack it would land inside the gap on one
+          // side only and make the fan look lopsided. The bottom sheet carries
+          // the shadow instead while the card is lifted.
+          "flex h-full flex-col overflow-hidden rounded-base border-2 border-border bg-secondary-background text-foreground shadow-shadow transition-shadow duration-200 group-hover:shadow-none",
           featured ? "sm:flex-row" : "",
         ].join(" ")}
       >

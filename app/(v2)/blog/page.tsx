@@ -66,7 +66,7 @@ export default function BlogPage() {
             </div>
           </div>
         ) : (
-          <ul className="grid gap-6 md:grid-cols-2">
+          <ul className="grid gap-8 md:grid-cols-2 md:gap-10">
             {published.map((post) => (
               <li key={post.slug}>
                 <a

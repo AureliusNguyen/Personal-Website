@@ -29,8 +29,13 @@ export function PaperStack({
 
   return (
     <div className={`group relative h-full ${className}`}>
-      {/* Bottom sheet: anchored, never moves. */}
-      <span aria-hidden className={sheet} />
+      {/* Bottom sheet: anchored, never moves, and carries the stack's hard
+          shadow. At rest it sits exactly under the card, so its shadow lands
+          in precisely the same place as the card's own and nothing looks
+          different. On hover the card drops its shadow and this one is
+          revealed, keeping the stack grounded in the neobrutalist idiom
+          without needing to animate a shadow at all. */}
+      <span aria-hidden className={`${sheet} shadow-shadow`} />
       {/* Middle sheet: trails the card at half distance. */}
       <span
         aria-hidden
