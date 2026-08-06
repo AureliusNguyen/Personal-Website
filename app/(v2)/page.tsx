@@ -5,17 +5,22 @@ import { ArrowRight, FilePdf } from "@phosphor-icons/react/dist/ssr";
 import { Button } from "@/components/nb/button";
 import { ProjectCard } from "@/components/v2/project-card";
 import { profile, RESUME_PATH } from "@/lib/content/profile";
-import { projects } from "@/lib/projects";
+import { projects, type Project } from "@/lib/projects";
 import { hasResume } from "@/lib/resume";
 
-const FEATURED = ["l33t-kv", "d7-agent-safety", "zk-fl-medical"];
+// Ids, so a project that gets commented out of lib/projects.ts simply drops
+// off the home page instead of crashing it. NeuroScan takes the third slot
+// while D7 is hidden.
+const FEATURED = ["l33t-kv", "zk-fl-medical", "brain-tumor"];
 
 export default function Home() {
-  const featured = FEATURED.map(
-    (id) => projects.find((p) => p.id === id)!,
-  ).filter(Boolean);
+  const featured = FEATURED.map((id) =>
+    projects.find((p) => p.id === id),
+  ).filter((p): p is Project => Boolean(p));
   const [lead, ...rest] = featured;
   const resume = hasResume();
+
+  if (!lead) return null;
 
   return (
     <>
@@ -23,10 +28,10 @@ export default function Home() {
       <section className="border-b-2 border-border bg-secondary-background text-foreground">
         <div className="mx-auto grid max-w-6xl gap-10 px-4 pt-12 pb-14 sm:px-6 sm:pt-16 lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:gap-16 lg:pb-20">
           <div>
-            <h1 className="text-5xl leading-[0.95] sm:text-6xl lg:text-7xl">
-              Leo
+            <h1 className="text-4xl leading-[1.02] sm:text-5xl lg:text-6xl">
+              Hi, I&apos;m
               <br />
-              Nguyen
+              Leo Nguyen
             </h1>
 
             <p className="mt-5 inline-block rounded-base border-2 border-border bg-main px-3 py-1.5 font-heading text-sm text-main-foreground shadow-shadow sm:text-base">
@@ -34,8 +39,8 @@ export default function Home() {
             </p>
 
             <p className="mt-6 max-w-[46ch] text-lg leading-relaxed text-foreground-muted">
-              I build agentic systems that do real work in production, and
-              research on how to make them verifiable.
+              I build agentic systems in production, and research on making
+              them verifiable, secure, and governable.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3">

@@ -15,23 +15,26 @@ export type Project = {
 };
 
 export const projects: Project[] = [
-  {
-    id: "d7-agent-safety",
-    title: "D7 Agent Safety Verification Platform",
-    period: "April 2026 – Present",
-    tag: "Verification",
-    blurb:
-      "A safety gate for teams deploying AI agents: turns fuzzy policy docs into machine-checkable rules so unsafe actions get blocked, with proof, before the agent ever runs them.",
-    highlights: [
-      "30+ REST endpoints for rulesets, claims, action schemas, and verification workflows",
-      "Z3 + deterministic SMT-LIB2 encoder; sub-50ms eval, proofs/counterexamples for high-risk requests",
-      "Async prover workers + PostgreSQL job queues; 68+ tests across API, encoding, solver, worker layers",
-    ],
-    tech: ["Python", "FastAPI", "Z3", "PostgreSQL", "Docker", "Pydantic"],
-    image:
-      "https://images.unsplash.com/photo-1605379399642-870262d3d051?w=900&q=80&auto=format&fit=crop",
-    imageAlt: "Code on dark monitors with crimson backlight",
-  },
+  // Hidden for now, not deleted. Uncomment to bring it back and it will
+  // reappear on /projects automatically; to feature it on the home page
+  // again, add "d7-agent-safety" back to FEATURED in app/(v2)/page.tsx.
+  // {
+  //   id: "d7-agent-safety",
+  //   title: "D7 Agent Safety Verification Platform",
+  //   period: "April 2026 - Present",
+  //   tag: "Verification",
+  //   blurb:
+  //     "A safety gate for teams deploying AI agents: turns fuzzy policy docs into machine-checkable rules so unsafe actions get blocked, with proof, before the agent ever runs them.",
+  //   highlights: [
+  //     "30+ REST endpoints for rulesets, claims, action schemas, and verification workflows",
+  //     "Z3 + deterministic SMT-LIB2 encoder; sub-50ms eval, proofs/counterexamples for high-risk requests",
+  //     "Async prover workers + PostgreSQL job queues; 68+ tests across API, encoding, solver, worker layers",
+  //   ],
+  //   tech: ["Python", "FastAPI", "Z3", "PostgreSQL", "Docker", "Pydantic"],
+  //   image:
+  //     "https://images.unsplash.com/photo-1605379399642-870262d3d051?w=900&q=80&auto=format&fit=crop",
+  //   imageAlt: "Code on dark monitors with crimson backlight",
+  // },
   {
     id: "zk-fl-medical",
     title: "Zero-Knowledge Federated Learning for Medical Imaging",

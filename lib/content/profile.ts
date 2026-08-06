@@ -12,12 +12,13 @@ export const profile = {
 
   // One sentence a recruiter should be able to read in three seconds.
   positioning:
-    "AI/ML engineer building agentic systems in production: retrieval pipelines and autonomous agents that do real work inside a business, backed by research on making them verifiable.",
+    "AI/ML engineer building agentic systems that are verifiable, secure, and governable, from production RAG agents to research on formal verification and privacy-preserving machine learning.",
 
   // Longer form, used on /about.
   summary: [
     "I build agentic systems. At Canaan Group I own the delivery of an AI sales platform where agents extract structured data from conversations, propose follow-ups, and flag anomalies against a semantic knowledge base.",
-    "The research half of my work is about trusting those systems: privacy-preserving federated learning, zero-knowledge proofs over model updates, and formal verification of agent actions.",
+    "The other half of my work is governance: making those systems verifiable, secure, and auditable rather than trusted on faith. That means privacy-preserving federated learning, zero-knowledge proofs over model updates, and formal verification of agent actions before they run.",
+    "Shipping agents is the easy part. Proving one did not leak, drift, or act outside policy is the part that decides whether it belongs anywhere serious.",
     "I am an Integrated BS/MS Computer Science student at the University of Minnesota, and I spend most weekends on CTF competitions, mostly reverse engineering and cryptography.",
   ],
 
