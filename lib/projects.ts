@@ -75,7 +75,7 @@ export const projects: Project[] = [
       "Built an explainability layer pairing TensorFlow GradientTape saliency maps with Gemini 2.5 multimodal LLM analysis to catch bias in 99%-accurate models that would have failed clinical audit despite high accuracy.",
     ],
     tech: ["TensorFlow", "Gemini", "Next.js"],
-    link: "https://github.com/AureliusNguyen/E2E-Brain-tumor-classification",
+    link: "https://neuroscan-atlas.vercel.app/",
     image: "/images/neuroscan.png",
     imageAlt: "NeuroScan project screenshot",
   },

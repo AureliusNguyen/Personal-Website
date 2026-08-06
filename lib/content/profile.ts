@@ -2,26 +2,27 @@
 // Consumed by both the v1 site (/v1) and the current site.
 
 export const profile = {
-  name: "Aurelius Nguyen",
-  nickname: "Leo",
-  role: "ML Engineer & AI Researcher",
+  name: "Leo Nguyen",
+  // Kept for search: recruiters and academic records use the full name.
+  legalName: "Aurelius (Leo) Nguyen",
+  role: "AI/ML Engineer",
   location: "Minneapolis, MN",
   email: "nguy5272@umn.edu",
   site: "https://www.madarame.dev",
 
   // One sentence a recruiter should be able to read in three seconds.
   positioning:
-    "Integrated BS/MS Computer Science student at the University of Minnesota building machine learning systems that come with proofs, not just accuracy numbers.",
+    "AI/ML engineer building agentic systems in production: retrieval pipelines and autonomous agents that do real work inside a business, backed by research on making them verifiable.",
 
   // Longer form, used on /about.
   summary: [
-    "I am an honors Master's student in Computer Science at the University of Minnesota, specializing in Machine Learning and Artificial Intelligence.",
-    "My research sits where machine learning meets verification and security: federated learning testbeds, zero-knowledge proofs over model updates, and formal verification of AI agent actions.",
-    "Outside research I ship full-stack AI products, and I spend most weekends on CTF competitions - mostly reverse engineering and cryptography.",
+    "I build agentic systems. At Canaan Group I own the delivery of an AI sales platform where agents extract structured data from conversations, propose follow-ups, and flag anomalies against a semantic knowledge base.",
+    "The research half of my work is about trusting those systems: privacy-preserving federated learning, zero-knowledge proofs over model updates, and formal verification of agent actions.",
+    "I am an Integrated BS/MS Computer Science student at the University of Minnesota, and I spend most weekends on CTF competitions, mostly reverse engineering and cryptography.",
   ],
 
   availability:
-    "Open to Summer 2027 internships in ML engineering, AI research, and security. Also up for collaborations and interesting problems.",
+    "Open to AI/ML engineering roles and research collaborations. The fastest way to reach me is email.",
 
   lastUpdated: "August 2026",
 } as const;
@@ -50,5 +51,6 @@ export const socials: SocialLink[] = [
   },
 ];
 
-// Path to the resume PDF in /public. Rendered as a CTA on the home page.
+// Path to the resume PDF in /public. The CTA only renders when the file is
+// actually there, so this stays inert until one is added.
 export const RESUME_PATH = "/resume.pdf";

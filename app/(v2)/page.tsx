@@ -20,11 +20,11 @@ export default function Home() {
   return (
     <>
       {/* Hero: asymmetric split, portrait carries the visual weight */}
-      <section className="border-b-2 border-border bg-secondary-background">
+      <section className="border-b-2 border-border bg-secondary-background text-foreground">
         <div className="mx-auto grid max-w-6xl gap-10 px-4 pt-12 pb-14 sm:px-6 sm:pt-16 lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:gap-16 lg:pb-20">
           <div>
             <h1 className="text-5xl leading-[0.95] sm:text-6xl lg:text-7xl">
-              Aurelius
+              Leo
               <br />
               Nguyen
             </h1>
@@ -34,8 +34,8 @@ export default function Home() {
             </p>
 
             <p className="mt-6 max-w-[46ch] text-lg leading-relaxed text-foreground-muted">
-              I build machine learning systems that ship with proofs, not just
-              accuracy numbers.
+              I build agentic systems that do real work in production, and
+              research on how to make them verifiable.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3">
@@ -76,7 +76,7 @@ export default function Home() {
           <h2 className="text-3xl sm:text-4xl">Selected work</h2>
           <Link
             href="/projects"
-            className="group inline-flex h-10 items-center gap-1.5 text-sm underline decoration-2 underline-offset-4 transition-colors hover:text-main focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-border"
+            className="group inline-flex h-10 items-center gap-1.5 text-sm underline decoration-2 underline-offset-4 transition-colors hover:text-main focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring"
           >
             All {projects.length} projects
             <ArrowRight
@@ -100,13 +100,13 @@ export default function Home() {
       <section className="border-y-2 border-border bg-main">
         <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-16">
           <p className="max-w-[38ch] text-2xl leading-tight text-main-foreground sm:text-3xl lg:text-4xl">
-            <span className="font-heading">Right now</span> I am extending an
-            NSF-funded federated learning testbed so attacks and defenses plug
-            in without forking the training loop.
+            <span className="font-heading">Right now</span> I am architecting
+            agentic systems at Canaan Group: RAG-backed agents that propose
+            follow-ups, surface revenue, and flag anomalies inside a live CRM.
           </p>
           <Link
             href="/about"
-            className="mt-8 inline-flex h-12 items-center gap-2 rounded-base border-2 border-border bg-secondary-background px-6 font-heading text-foreground shadow-shadow transition-all duration-150 hover:translate-x-boxShadowX hover:translate-y-boxShadowY hover:shadow-none active:translate-x-boxShadowX active:translate-y-boxShadowY active:shadow-none active:scale-[0.98] focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-border focus-visible:ring-offset-2"
+            className="mt-8 inline-flex h-12 items-center gap-2 rounded-base border-2 border-border bg-secondary-background px-6 font-heading text-foreground shadow-shadow transition-all duration-150 hover:translate-x-boxShadowX hover:translate-y-boxShadowY hover:shadow-none active:translate-x-boxShadowX active:translate-y-boxShadowY active:shadow-none active:scale-[0.98] focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
           >
             Read the background
             <ArrowRight weight="bold" className="size-4" />

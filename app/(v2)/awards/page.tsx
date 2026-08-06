@@ -101,7 +101,7 @@ export default function AwardsPage() {
                   href={href}
                   target="_blank"
                   rel="noreferrer"
-                  className="group inline-flex h-11 items-center gap-2 rounded-base border-2 border-border bg-secondary-background px-4 text-sm shadow-shadow transition-all duration-150 hover:translate-x-boxShadowX hover:translate-y-boxShadowY hover:shadow-none active:translate-x-boxShadowX active:translate-y-boxShadowY active:shadow-none active:scale-[0.98] focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-border focus-visible:ring-offset-2"
+                  className="group inline-flex h-11 items-center gap-2 rounded-base border-2 border-border bg-secondary-background px-4 text-sm text-foreground shadow-shadow transition-all duration-150 hover:translate-x-boxShadowX hover:translate-y-boxShadowY hover:shadow-none active:translate-x-boxShadowX active:translate-y-boxShadowY active:shadow-none active:scale-[0.98] focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                 >
                   {name}
                   <ArrowUpRight

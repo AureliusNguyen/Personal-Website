@@ -17,7 +17,7 @@ export function Disclosure({
 }) {
   return (
     <details className="group">
-      <summary className="flex h-11 cursor-pointer list-none items-center gap-2 rounded-base border-2 border-border bg-background px-3 text-sm transition-all duration-150 hover:translate-x-boxShadowX hover:translate-y-boxShadowY hover:shadow-none active:scale-[0.98] focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-border focus-visible:ring-offset-2 shadow-shadow [&::-webkit-details-marker]:hidden">
+      <summary className="flex h-11 cursor-pointer list-none items-center gap-2 rounded-base border-2 border-border bg-background px-3 text-sm text-foreground transition-all duration-150 hover:translate-x-boxShadowX hover:translate-y-boxShadowY hover:shadow-none active:scale-[0.98] focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background shadow-shadow [&::-webkit-details-marker]:hidden">
         <CaretDown
           weight="bold"
           className="size-4 shrink-0 transition-transform duration-200 group-open:rotate-180"

@@ -59,20 +59,26 @@ export default function ContactPage() {
           {CHANNELS.map(({ label, value, href, Icon, primary }) => {
             const inner = (
               <>
+                {/* Both branches set their own text colour. The primary tile
+                    sits inside a `text-main-foreground` parent, so without an
+                    explicit `text-foreground` the glyph inherits near-black and
+                    disappears against the dark card once dark mode is on. */}
                 <span
                   className={[
                     "grid size-11 shrink-0 place-items-center rounded-base border-2 border-border",
                     primary
-                      ? "bg-secondary-background"
+                      ? "bg-secondary-background text-foreground"
                       : "bg-main text-main-foreground",
                   ].join(" ")}
                 >
                   <Icon size={20} weight="bold" />
                 </span>
                 <span className="min-w-0">
-                  <span className="block text-xs text-foreground-muted">
-                    {label}
-                  </span>
+                  {/* opacity, not `text-foreground-muted`: this label appears
+                      on both the crimson primary tile and the neutral ones, so
+                      it has to dim whatever colour it inherits rather than
+                      commit to one. */}
+                  <span className="block text-xs opacity-80">{label}</span>
                   <span className="block truncate font-heading">{value}</span>
                 </span>
                 {href && (
@@ -86,7 +92,9 @@ export default function ContactPage() {
 
             const shared = [
               "flex items-center gap-4 rounded-base border-2 border-border p-4",
-              primary ? "bg-main text-main-foreground" : "bg-secondary-background",
+              primary
+                ? "bg-main text-main-foreground"
+                : "bg-secondary-background text-foreground",
             ].join(" ");
 
             return (
@@ -99,7 +107,7 @@ export default function ContactPage() {
                     href={href}
                     target={href.startsWith("http") ? "_blank" : undefined}
                     rel={href.startsWith("http") ? "noreferrer" : undefined}
-                    className={`group ${shared} shadow-shadow transition-all duration-150 hover:translate-x-boxShadowX hover:translate-y-boxShadowY hover:shadow-none active:translate-x-boxShadowX active:translate-y-boxShadowY active:shadow-none active:scale-[0.99] focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-border focus-visible:ring-offset-2`}
+                    className={`group ${shared} shadow-shadow transition-all duration-150 hover:translate-x-boxShadowX hover:translate-y-boxShadowY hover:shadow-none active:translate-x-boxShadowX active:translate-y-boxShadowY active:shadow-none active:scale-[0.99] focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background`}
                   >
                     {inner}
                   </a>

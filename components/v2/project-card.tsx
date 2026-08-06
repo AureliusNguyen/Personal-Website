@@ -24,7 +24,7 @@ export function ProjectCard({
   return (
     <article
       className={[
-        "flex flex-col rounded-base border-2 border-border bg-secondary-background shadow-shadow",
+        "flex flex-col rounded-base border-2 border-border bg-secondary-background text-foreground shadow-shadow",
         "transition-transform duration-150 hover:-translate-y-0.5",
         featured ? "sm:flex-row" : "",
       ].join(" ")}
@@ -43,7 +43,10 @@ export function ProjectCard({
             alt={project.imageAlt ?? `${project.title} screenshot`}
             fill
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 600px"
-            className="object-cover"
+            // Anchor top-left. On the featured card the image column stretches
+            // to match the text column, and a centred crop cuts the title off
+            // the left edge once the disclosure is open.
+            className="object-cover object-left-top"
           />
         </div>
       )}
@@ -90,7 +93,7 @@ export function ProjectCard({
               href={project.link}
               target="_blank"
               rel="noreferrer"
-              className="group flex h-11 items-center gap-2 rounded-base border-2 border-border bg-main px-3 text-sm text-main-foreground shadow-shadow transition-all duration-150 hover:translate-x-boxShadowX hover:translate-y-boxShadowY hover:shadow-none active:translate-x-boxShadowX active:translate-y-boxShadowY active:shadow-none active:scale-[0.98] focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-border focus-visible:ring-offset-2"
+              className="group flex h-11 items-center gap-2 rounded-base border-2 border-border bg-main px-3 text-sm text-main-foreground shadow-shadow transition-all duration-150 hover:translate-x-boxShadowX hover:translate-y-boxShadowY hover:shadow-none active:translate-x-boxShadowX active:translate-y-boxShadowY active:shadow-none active:scale-[0.98] focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             >
               <span className="font-heading">
                 {project.link.includes("github.com") ? "Source" : "Live site"}

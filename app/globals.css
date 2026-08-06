@@ -52,6 +52,32 @@
 }
 
 /* ---------------------------------------------------------------------------
+   Dark mode. next-themes puts `.dark` on the same <html> that carries
+   data-site, hence the compound selector.
+
+   The border inverts to near-white here rather than staying black. A 2px
+   black border and a 4px black shadow on a dark page are invisible, which
+   throws away the entire neobrutalist language - the hard edge IS the style.
+   Inverting keeps the edges loud in both themes. `--shadow` derives from
+   `--border`, so the offset shadow inverts with it for free.
+   --------------------------------------------------------------------------- */
+[data-site="v2"].dark {
+  color-scheme: dark;
+
+  --background: oklch(20% 0.025 22);
+  --secondary-background: oklch(27% 0.03 22);
+  --foreground: oklch(96% 0.004 22);
+  --foreground-muted: oklch(78% 0.012 22);
+
+  --main: oklch(70% 0.187 22);
+  --main-foreground: oklch(0% 0 0);
+
+  --border: oklch(96% 0.004 22);
+  --ring: oklch(100% 0 0);
+  --overlay: oklch(0% 0 0 / 0.8);
+}
+
+/* ---------------------------------------------------------------------------
    v1: the archived noir/crimson poker-table palette. These were the `:root`
    tokens of the original site, moved verbatim under a scope.
    --------------------------------------------------------------------------- */

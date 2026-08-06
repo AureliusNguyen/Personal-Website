@@ -10,7 +10,7 @@ export function PageHeader({
   lede?: string;
 }) {
   return (
-    <div className="border-b-2 border-border bg-secondary-background">
+    <div className="border-b-2 border-border bg-secondary-background text-foreground">
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16">
         <h1 className="text-4xl leading-[1.05] sm:text-5xl lg:text-6xl">
           {title}

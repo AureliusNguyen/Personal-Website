@@ -3,6 +3,7 @@ import { Archivo, Public_Sans } from "next/font/google";
 import "../globals.css";
 import { SiteNav } from "@/components/v2/site-nav";
 import { SiteFooter } from "@/components/v2/site-footer";
+import { ThemeProvider } from "@/components/v2/theme-provider";
 import { profile } from "@/lib/content/profile";
 
 // Root layout for the current site. The archived v1 site has its own root
@@ -56,23 +57,28 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+    // suppressHydrationWarning: next-themes stamps the theme class onto <html>
+    // before React hydrates, so server and client markup differ by design.
     <html
       lang="en"
       data-site="v2"
       className={`${archivo.variable} ${publicSans.variable}`}
+      suppressHydrationWarning
     >
       <body className="antialiased min-h-[100dvh] flex flex-col">
-        <a
-          href="#main"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:rounded-base focus:border-2 focus:border-border focus:bg-main focus:px-4 focus:py-2 focus:font-heading focus:shadow-shadow"
-        >
-          Skip to content
-        </a>
-        <SiteNav />
-        <main id="main" className="flex-1">
-          {children}
-        </main>
-        <SiteFooter />
+        <ThemeProvider>
+          <a
+            href="#main"
+            className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:rounded-base focus:border-2 focus:border-border focus:bg-main focus:px-4 focus:py-2 focus:font-heading focus:text-main-foreground focus:shadow-shadow"
+          >
+            Skip to content
+          </a>
+          <SiteNav />
+          <main id="main" className="flex-1">
+            {children}
+          </main>
+          <SiteFooter />
+        </ThemeProvider>
       </body>
     </html>
   );

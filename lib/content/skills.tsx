@@ -8,6 +8,7 @@ import {
   SiQiskit,
   SiWireshark,
   SiBurpsuite,
+  SiCloudflare,
 } from "react-icons/si";
 import {
   FaLink,
@@ -18,6 +19,8 @@ import {
   FaSquareRootAlt,
   FaShieldAlt,
   FaCloud,
+  FaProjectDiagram,
+  FaLayerGroup,
 } from "react-icons/fa";
 import { GiDragonHead, GiAnt } from "react-icons/gi";
 import { Flower2 } from "lucide-react";
@@ -41,14 +44,16 @@ const FlowerAiIcon: ReactIcon = ({ className }) => (
 );
 
 export const mlAi: Skill[] = [
+  { name: "LangGraph", icon: FaProjectDiagram, isReactIcon: true },
+  { name: "Langchain", icon: FaLink, isReactIcon: true },
+  { name: "AWS Bedrock", icon: FaLayerGroup, isReactIcon: true },
+  { name: "OpenAI", icon: SiOpenai, isReactIcon: true },
+  { name: "HuggingFace", icon: SiHuggingface, isReactIcon: true },
+  { name: "Pinecone", icon: FaDatabase, isReactIcon: true },
+  { name: "LiteLLM", icon: FaBolt, isReactIcon: true },
   { name: "PyTorch", icon: "devicon-pytorch-original colored" },
   { name: "TensorFlow", icon: "devicon-tensorflow-original colored" },
   { name: "Scikit-learn", icon: "devicon-scikitlearn-plain colored" },
-  { name: "HuggingFace", icon: SiHuggingface, isReactIcon: true },
-  { name: "Langchain", icon: FaLink, isReactIcon: true },
-  { name: "OpenAI", icon: SiOpenai, isReactIcon: true },
-  { name: "Pinecone", icon: FaDatabase, isReactIcon: true },
-  { name: "LiteLLM", icon: FaBolt, isReactIcon: true },
   { name: "Flower.ai", icon: FlowerAiIcon, isReactIcon: true },
   { name: "CUDA", icon: SiNvidia, isReactIcon: true },
   { name: "Jupyter", icon: "devicon-jupyter-plain colored" },
@@ -60,7 +65,9 @@ export const infraDevops: Skill[] = [
   { name: "Docker", icon: "devicon-docker-plain colored" },
   { name: "Kubernetes", icon: SiKubernetes, isReactIcon: true },
   { name: "Terraform", icon: "devicon-terraform-plain colored" },
+  { name: "Cloudflare", icon: SiCloudflare, isReactIcon: true },
   { name: "Civo", icon: FaCloud, isReactIcon: true },
+  { name: "React Native", icon: "devicon-react-original colored" },
   { name: "Nginx", icon: "devicon-nginx-original colored" },
   { name: "PostgreSQL", icon: "devicon-postgresql-plain colored" },
   { name: "Apache Kafka", icon: "devicon-apachekafka-original" },
@@ -109,9 +116,9 @@ export type Category = {
 
 export const categories: Category[] = [
   {
-    title: "ML & AI",
+    title: "Agents & ML",
     suit: "♥",
-    blurb: "Models, agents, retrieval, and the GPU stack underneath.",
+    blurb: "Agent orchestration, retrieval, models, and the GPU stack underneath.",
     skills: mlAi,
   },
   {

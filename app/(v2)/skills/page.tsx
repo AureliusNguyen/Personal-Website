@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 function SkillChip({ skill }: { skill: Skill }) {
   const Icon = skill.isReactIcon ? skill.icon : null;
   return (
-    <li className="inline-flex h-9 items-center gap-2 rounded-base border-2 border-border bg-background px-2.5 text-sm">
+    <li className="inline-flex h-9 items-center gap-2 rounded-base border-2 border-border bg-background px-2.5 text-sm text-foreground">
       {/* Fixed slot keeps every chip the same height whether the glyph is an
           SVG component or a devicon font glyph. */}
       <span className="inline-flex size-4 shrink-0 items-center justify-center text-base leading-none">
