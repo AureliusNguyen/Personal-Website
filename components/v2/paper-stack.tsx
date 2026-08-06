@@ -34,10 +34,19 @@ export function PaperStack({
       {/* Middle sheet: trails the card at half distance. */}
       <span
         aria-hidden
-        className={`${sheet} group-hover:-translate-x-1.5 group-hover:-translate-y-1.5`}
+        className={`${sheet} group-hover:-translate-x-1.5 group-hover:-translate-y-1.5 sm:group-hover:-translate-x-3 sm:group-hover:-translate-y-3`}
       />
-      {/* The real card, which is what actually slides off the stack. */}
-      <div className="relative h-full transition-transform duration-200 ease-out group-hover:-translate-x-3 group-hover:-translate-y-3">
+      {/* The real card, which is what actually slides off the stack.
+          24px / 12px from sm up rather than 12px / 6px: the sheets carry 2px
+          borders, so at a 6px step only 4px of paper showed between two edges
+          and the middle sheet read as a doubled border instead of a separate
+          sheet. 12px between layers leaves real paper visible.
+
+          The step stays small below sm. There the grid is one column inside
+          16px of padding, so a 24px slide would carry the card past the left
+          edge of the screen. Touch devices never fire :hover anyway, so this
+          only matters on a narrow window with a mouse. */}
+      <div className="relative h-full transition-transform duration-200 ease-out group-hover:-translate-x-3 group-hover:-translate-y-3 sm:group-hover:-translate-x-6 sm:group-hover:-translate-y-6">
         {children}
       </div>
     </div>
