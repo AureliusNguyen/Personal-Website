@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { ArrowUpRight } from "@phosphor-icons/react/dist/ssr";
 
 import { Badge } from "@/components/nb/badge";
-import { Disclosure } from "@/components/v2/disclosure";
+import { DetailPopover } from "@/components/v2/detail-popover";
 import { PageHeader } from "@/components/v2/page-header";
 import {
   ctfHighlight,
@@ -60,7 +60,7 @@ export default function AwardsPage() {
 
           {remainder.length > 0 && (
             <div className="mt-4">
-              <Disclosure summary="More placements" count={remainder.length}>
+              <DetailPopover id="ctf-more" summary="More placements" count={remainder.length}>
                 <ul className="flex flex-wrap gap-2">
                   {remainder.map((p) => (
                     <li key={p}>
@@ -68,7 +68,7 @@ export default function AwardsPage() {
                     </li>
                   ))}
                 </ul>
-              </Disclosure>
+              </DetailPopover>
             </div>
           )}
         </section>

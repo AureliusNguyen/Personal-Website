@@ -286,6 +286,76 @@
 }
 
 /* ===========================================================================
+   Detail popover (current site). Tailwind has no utilities for the top layer
+   or anchor positioning, so this lives in plain CSS.
+   =========================================================================== */
+[data-site="v2"] .detail-panel {
+  border: 2px solid var(--border);
+  border-radius: var(--border-radius);
+  background: var(--secondary-background);
+  color: var(--foreground);
+  box-shadow: var(--shadow);
+  padding: 1rem;
+  width: max-content;
+  max-width: min(30rem, calc(100vw - 2rem));
+  /* A long highlight list can outgrow the viewport. Cap it and scroll inside
+     the panel rather than letting it run off screen. */
+  max-height: min(60vh, 26rem);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  /* The UA centres a popover with `inset: 0; margin: auto`, but Tailwind's
+     preflight zeroes margin on every element, which pins the panel to the
+     top-left corner instead. Put the centring back for the unanchored case. */
+  margin: auto;
+}
+
+/* Pin the panel under its trigger, but only from `sm` up. On a phone there
+   is not enough room below a trigger for a panel of this size, and anchoring
+   pushed it off the bottom of the screen. Narrow viewports fall through to
+   the UA default, which centres the panel over a backdrop - easier to reach
+   with a thumb and always fully visible. */
+@supports (anchor-name: --a) {
+  @media (min-width: 640px) {
+    [data-site="v2"] .detail-panel:popover-open {
+      position: absolute;
+      inset: auto;
+      margin: 0;
+      top: calc(anchor(bottom) + 0.5rem);
+      left: anchor(left);
+      /* Flip above the trigger near the bottom of the viewport, and align to
+         the right edge when the panel would overflow to the right. */
+      position-try-fallbacks: flip-block, flip-inline, flip-block flip-inline;
+    }
+  }
+}
+
+/* Backdrop only where the panel is centred over the page. An anchored panel
+   sits beside its trigger and reads as a popover, not a modal; dimming the
+   whole page for it is too heavy a gesture. */
+@media (max-width: 639px) {
+  [data-site="v2"] .detail-panel::backdrop {
+    background: oklch(0% 0 0 / 0.4);
+  }
+}
+
+/* Caret points down when closed, up when the panel is open. */
+[data-site="v2"] .detail-caret {
+  transition: transform 200ms ease;
+}
+[data-site="v2"] .detail-trigger:has(+ .detail-panel:popover-open) .detail-caret {
+  transform: rotate(180deg);
+}
+[data-site="v2"] .detail-trigger:has(+ .detail-panel:popover-open) .detail-count {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-site="v2"] .detail-caret {
+    transition: none;
+  }
+}
+
+/* ===========================================================================
    v1-only component classes. Nothing in the current site uses these; they are
    kept intact so the archive renders exactly as it always did.
    =========================================================================== */

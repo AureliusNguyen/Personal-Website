@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 import { Badge } from "@/components/nb/badge";
-import { Disclosure } from "@/components/v2/disclosure";
+import { DetailPopover } from "@/components/v2/detail-popover";
 import { PageHeader } from "@/components/v2/page-header";
 import {
   coursework,
@@ -41,7 +41,7 @@ export default function AboutPage() {
                 </p>
 
                 <div className="mt-5">
-                  <Disclosure summary="Coursework" count={coursework.length}>
+                  <DetailPopover id="coursework" summary="Coursework" count={coursework.length}>
                     <ul className="flex flex-wrap gap-1.5">
                       {coursework.map((c) => (
                         <li key={c}>
@@ -49,7 +49,7 @@ export default function AboutPage() {
                         </li>
                       ))}
                     </ul>
-                  </Disclosure>
+                  </DetailPopover>
                 </div>
               </div>
             </section>
@@ -99,7 +99,7 @@ export default function AboutPage() {
                   </p>
 
                   <div className="mt-4">
-                    <Disclosure summary="Detail" count={exp.points.length}>
+                    <DetailPopover id={exp.id} summary="Detail" count={exp.points.length}>
                       <ul className="space-y-2.5">
                         {exp.points.map((p, i) => (
                           <li
@@ -110,7 +110,7 @@ export default function AboutPage() {
                           </li>
                         ))}
                       </ul>
-                    </Disclosure>
+                    </DetailPopover>
                   </div>
                 </li>
               ))}

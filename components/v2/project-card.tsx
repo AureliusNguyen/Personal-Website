@@ -2,7 +2,7 @@ import Image from "next/image";
 import { ArrowUpRight } from "@phosphor-icons/react/dist/ssr";
 
 import { Badge } from "@/components/nb/badge";
-import { Disclosure } from "@/components/v2/disclosure";
+import { DetailPopover } from "@/components/v2/detail-popover";
 import { PaperStack } from "@/components/v2/paper-stack";
 import type { Project } from "@/lib/projects";
 
@@ -117,7 +117,8 @@ export function ProjectCard({
           </ul>
 
           <div className="mt-auto space-y-3 pt-2">
-            <Disclosure
+            <DetailPopover
+              id={project.id}
               summary="What I built"
               count={project.highlights.length}
             >
@@ -131,7 +132,7 @@ export function ProjectCard({
                   </li>
                 ))}
               </ul>
-            </Disclosure>
+            </DetailPopover>
 
             {(project.demo || project.repo) && (
               <div className="flex flex-wrap gap-2">

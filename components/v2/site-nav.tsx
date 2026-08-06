@@ -8,7 +8,7 @@ import { House, List, X } from "@phosphor-icons/react";
 import { ThemeToggle } from "@/components/v2/theme-toggle";
 
 const NAV = [
-  { label: "Work", href: "/projects" },
+  { label: "Projects", href: "/projects" },
   { label: "About", href: "/about" },
   { label: "Skills", href: "/skills" },
   { label: "Awards", href: "/awards" },
@@ -74,12 +74,17 @@ export function SiteNav() {
                   <Link
                     href={item.href}
                     aria-current={active ? "page" : undefined}
+                    // Same physics as every other button on the site: 2px
+                    // border, hard shadow, drops into the shadow on hover and
+                    // press. Current page is filled crimson, the rest neutral.
                     className={[
-                      "inline-flex h-10 items-center rounded-base border-2 px-3 text-sm transition-all duration-150",
+                      "inline-flex h-10 items-center rounded-base border-2 border-border px-3 text-sm shadow-shadow transition-all duration-150",
+                      "hover:translate-x-boxShadowX hover:translate-y-boxShadowY hover:shadow-none",
+                      "active:translate-x-boxShadowX active:translate-y-boxShadowY active:shadow-none active:scale-[0.98]",
                       "focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
                       active
-                        ? "border-border bg-main font-heading text-main-foreground shadow-shadow"
-                        : "border-transparent font-base text-foreground hover:border-border hover:bg-background active:scale-[0.97]",
+                        ? "bg-main font-heading text-main-foreground"
+                        : "bg-background font-base text-foreground",
                     ].join(" ")}
                   >
                     {item.label}
@@ -122,10 +127,11 @@ export function SiteNav() {
                     href={item.href}
                     aria-current={active ? "page" : undefined}
                     className={[
-                      "flex h-12 items-center rounded-base border-2 px-4 my-1 transition-all duration-150",
+                      "my-2 flex h-12 items-center rounded-base border-2 border-border px-4 shadow-shadow transition-all duration-150",
+                      "active:translate-x-boxShadowX active:translate-y-boxShadowY active:shadow-none active:scale-[0.99]",
                       active
-                        ? "border-border bg-main font-heading text-main-foreground shadow-shadow"
-                        : "border-transparent font-base text-foreground active:border-border active:bg-background",
+                        ? "bg-main font-heading text-main-foreground"
+                        : "bg-background font-base text-foreground",
                     ].join(" ")}
                   >
                     {item.label}
