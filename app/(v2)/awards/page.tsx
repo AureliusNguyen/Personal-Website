@@ -5,6 +5,7 @@ import { Badge } from "@/components/nb/badge";
 import { Disclosure } from "@/components/v2/disclosure";
 import { PageHeader } from "@/components/v2/page-header";
 import {
+  ctfHighlight,
   ctfPlacements,
   hackathonPlacements,
   otherAwards,
@@ -41,8 +42,12 @@ export default function AwardsPage() {
               {ctfPlacements.length} placements, roughly $3K in prizes
             </p>
           </div>
-          <p className="mt-2 max-w-[60ch] text-sm text-foreground-muted">
+          <p className="mt-2 max-w-[60ch] text-balance text-sm text-foreground-muted">
             Reverse engineering and cryptography, most weekends.
+          </p>
+
+          <p className="mt-5 inline-flex items-center rounded-base border-2 border-border bg-main px-3 py-1.5 font-heading text-sm text-main-foreground shadow-shadow">
+            {ctfHighlight}
           </p>
 
           <ul className="mt-5 flex flex-wrap gap-2">

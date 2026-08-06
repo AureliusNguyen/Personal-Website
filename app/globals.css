@@ -61,20 +61,63 @@
    Inverting keeps the edges loud in both themes. `--shadow` derives from
    `--border`, so the offset shadow inverts with it for free.
    --------------------------------------------------------------------------- */
+/* ---------------------------------------------------------------------------
+   Dark palettes: red and jade.
+
+   Jade sits near hue 165, crimson near 25. They are far enough apart to read
+   as two deliberate colours rather than a wash, and the pairing keeps a line
+   back to the v1 site's poker-table idea (red on green felt).
+
+   Default is "Jade Felt". The [data-dark] variants are switchable in dev.
+   --------------------------------------------------------------------------- */
+
+/* "Jade Felt". Green owns the surfaces, bone owns the edges, crimson is the
+   only warm thing on the page and therefore the loudest. */
 [data-site="v2"].dark {
   color-scheme: dark;
 
-  --background: oklch(20% 0.025 22);
-  --secondary-background: oklch(27% 0.03 22);
-  --foreground: oklch(96% 0.004 22);
-  --foreground-muted: oklch(78% 0.012 22);
+  --background: oklch(20% 0.045 170);
+  --secondary-background: oklch(27.5% 0.05 170);
+  --foreground: oklch(96% 0.01 165);
+  --foreground-muted: oklch(81% 0.026 168);
 
-  --main: oklch(70% 0.187 22);
+  --main: oklch(65% 0.225 25);
   --main-foreground: oklch(0% 0 0);
 
-  --border: oklch(96% 0.004 22);
-  --ring: oklch(100% 0 0);
+  --border: oklch(95% 0.022 165);
+  --ring: oklch(95% 0.022 165);
   --overlay: oklch(0% 0 0 / 0.8);
+}
+
+/* "Lacquer". Near-black neutral surfaces, saturated jade in the borders and
+   hard shadows only. The two colours never touch the same surface, so both
+   stay fully saturated instead of averaging into each other. */
+[data-site="v2"].dark[data-dark="lacquer"] {
+  --background: oklch(15% 0.008 165);
+  --secondary-background: oklch(23% 0.014 165);
+  --foreground: oklch(96% 0.004 160);
+  --foreground-muted: oklch(80% 0.014 165);
+
+  --main: oklch(66% 0.225 26);
+  --main-foreground: oklch(0% 0 0);
+
+  --border: oklch(80% 0.155 165);
+  --ring: oklch(80% 0.155 165);
+}
+
+/* "Jade Table". The middle reading: jade-black surfaces with pale jade edges,
+   so green is present everywhere at low volume and crimson still leads. */
+[data-site="v2"].dark[data-dark="table"] {
+  --background: oklch(16.5% 0.03 168);
+  --secondary-background: oklch(24.5% 0.038 168);
+  --foreground: oklch(95% 0.012 162);
+  --foreground-muted: oklch(79% 0.024 166);
+
+  --main: oklch(64% 0.22 25);
+  --main-foreground: oklch(0% 0 0);
+
+  --border: oklch(91% 0.07 165);
+  --ring: oklch(91% 0.07 165);
 }
 
 /* ---------------------------------------------------------------------------

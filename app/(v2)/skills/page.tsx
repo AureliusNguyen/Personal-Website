@@ -14,10 +14,13 @@ export const metadata: Metadata = {
 function SkillChip({ skill }: { skill: Skill }) {
   const Icon = skill.isReactIcon ? skill.icon : null;
   return (
-    <li className="inline-flex h-9 items-center gap-2 rounded-base border-2 border-border bg-background px-2.5 text-sm text-foreground">
+    // Chips are not links, so the hover is feedback that the grid is alive
+    // rather than an affordance promising navigation: it lifts into a hard
+    // shadow and the label goes bold, no colour change.
+    <li className="group inline-flex h-9 cursor-default items-center gap-2 rounded-base border-2 border-border bg-background px-2.5 text-sm text-foreground transition-all duration-150 hover:-translate-x-boxShadowX hover:-translate-y-boxShadowY hover:shadow-shadow hover:font-heading">
       {/* Fixed slot keeps every chip the same height whether the glyph is an
           SVG component or a devicon font glyph. */}
-      <span className="inline-flex size-4 shrink-0 items-center justify-center text-base leading-none">
+      <span className="inline-flex size-4 shrink-0 items-center justify-center text-base leading-none transition-transform duration-150 group-hover:scale-110">
         {Icon ? (
           <Icon className="size-4" />
         ) : (
@@ -37,7 +40,7 @@ export default function SkillsPage() {
     <>
       <PageHeader
         title="Skills"
-        lede="Grouped by where I actually use them, not by how impressive the list looks."
+        lede="Languages, ML and AI frameworks, infrastructure, and security tooling I have shipped with."
       />
 
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16">

@@ -16,7 +16,7 @@ export default function ProjectsPage() {
     <>
       <PageHeader
         title="Projects"
-        lede="Research systems and shipped products. Each card opens to the detail if you want it."
+        lede="Research systems and shipped products."
       />
 
       <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16">

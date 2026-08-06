@@ -6,13 +6,13 @@ import { useEffect, useState } from "react";
 import { House, List, X } from "@phosphor-icons/react";
 
 import { ThemeToggle } from "@/components/v2/theme-toggle";
-import { profile } from "@/lib/content/profile";
 
 const NAV = [
   { label: "Work", href: "/projects" },
   { label: "About", href: "/about" },
   { label: "Skills", href: "/skills" },
   { label: "Awards", href: "/awards" },
+  { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -63,7 +63,6 @@ export function SiteNav() {
           <span className="grid size-10 shrink-0 place-items-center rounded-base border-2 border-border bg-main text-main-foreground shadow-shadow transition-transform duration-150 group-hover:translate-x-boxShadowX group-hover:translate-y-boxShadowY group-hover:shadow-none group-active:translate-x-boxShadowX group-active:translate-y-boxShadowY group-active:shadow-none">
             <House size={20} weight="bold" aria-hidden />
           </span>
-          <span className="truncate font-heading text-base">{profile.name}</span>
         </Link>
 
         <div className="flex items-center gap-2">

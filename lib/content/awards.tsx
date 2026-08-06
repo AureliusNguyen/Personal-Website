@@ -32,8 +32,11 @@ export const hackathonPlacements = [
 export const otherAwards = [
   "$2K Undergraduate Research Award",
   "$60K UMN Global Excellence Scholarship",
-  "Top 94 / 118,941 @ CryptoHack.org",
 ];
+
+// Called out beside the CTF placements rather than buried in the award list:
+// it is a global standing on the same skill those placements come from.
+export const ctfHighlight = "Top 94 / 118,941 @ CryptoHack.org";
 
 export const profileLinks = [
   { name: "GopherHack", href: "https://gopherhack.com/", Icon: Flag },

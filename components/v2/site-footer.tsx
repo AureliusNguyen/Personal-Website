@@ -30,9 +30,9 @@ export function SiteFooter() {
           </Link>
         </div>
 
-        <p className="mt-8 border-t-2 border-border pt-6 text-xs text-foreground-muted">
-          Built with Next.js and Tailwind. (c) {new Date().getFullYear()}{" "}
-          {profile.name}.
+        <p className="mt-8 border-t-2 border-border pt-6 text-center text-xs text-foreground-muted">
+          Built with Love <span aria-label="love">&#10084;&#65039;</span> (c){" "}
+          {new Date().getFullYear()} {profile.name}.
         </p>
       </div>
     </footer>

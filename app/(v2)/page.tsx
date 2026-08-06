@@ -38,15 +38,16 @@ export default function Home() {
               {profile.role}
             </p>
 
-            <p className="mt-6 max-w-[46ch] text-lg leading-relaxed text-foreground-muted">
-              I build agentic systems in production, and research on making
-              them verifiable, secure, and governable.
+            {/* text-balance evens the line lengths. Without it a max-width
+                cap leaves a short final line hanging to the right. */}
+            <p className="mt-6 max-w-[46ch] text-balance text-lg leading-relaxed text-foreground-muted">
+              I build agentic systems for both enterprise internal and customer-facing use cases. I also do research on agents verifiability, security, and governance.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3">
               <Button asChild size="lg">
                 <Link href="/projects">
-                  View work
+                  View my work
                   <ArrowRight weight="bold" />
                 </Link>
               </Button>
@@ -105,9 +106,7 @@ export default function Home() {
       <section className="border-y-2 border-border bg-main">
         <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-16">
           <p className="max-w-[38ch] text-2xl leading-tight text-main-foreground sm:text-3xl lg:text-4xl">
-            <span className="font-heading">Right now</span> I am architecting
-            agentic systems at Canaan Group: RAG-backed agents that propose
-            follow-ups, surface revenue, and flag anomalies inside a live CRM.
+            <span className="font-heading">Right now</span> I am architecting agentic systems at Canaan Group: RAG-backed agents that propose follow-ups, surface revenue, and flag anomalies inside a live CRM.
           </p>
           <Link
             href="/about"

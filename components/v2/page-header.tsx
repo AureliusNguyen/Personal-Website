@@ -16,7 +16,9 @@ export function PageHeader({
           {title}
         </h1>
         {lede && (
-          <p className="mt-4 max-w-[60ch] text-base text-foreground-muted sm:text-lg">
+          // text-balance rather than a bare max-width: the cap alone leaves a
+          // short trailing line hanging right, which reads as a broken wrap.
+          <p className="mt-4 max-w-[60ch] text-balance text-base text-foreground-muted sm:text-lg">
             {lede}
           </p>
         )}

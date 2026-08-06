@@ -71,7 +71,7 @@ export default function AboutPage() {
                 {profile.summary.map((line) => (
                   <p
                     key={line}
-                    className="max-w-[60ch] leading-relaxed text-foreground-muted"
+                    className="max-w-[60ch] text-pretty leading-relaxed text-foreground-muted"
                   >
                     {line}
                   </p>

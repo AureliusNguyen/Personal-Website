@@ -17,12 +17,11 @@ import {
   FaBug,
   FaNetworkWired,
   FaSquareRootAlt,
-  FaShieldAlt,
   FaCloud,
   FaProjectDiagram,
   FaLayerGroup,
 } from "react-icons/fa";
-import { GiDragonHead, GiAnt } from "react-icons/gi";
+import { GiDragonHead, GiCricket } from "react-icons/gi";
 import { Flower2 } from "lucide-react";
 
 // Skills carry their own icon, so this module is .tsx rather than .ts.
@@ -42,6 +41,21 @@ export type Skill =
 const FlowerAiIcon: ReactIcon = ({ className }) => (
   <Flower2 className={className} size={18} strokeWidth={1.6} />
 );
+
+// Some tools have no icon in any library we ship (Dafny is not in devicon,
+// react-icons, or Simple Icons). A typographic letter mark is honest about
+// that; inventing a glyph would just be a drawn shape that means nothing.
+const letterMark = (letter: string): ReactIcon =>
+  function LetterMark({ className }) {
+    return (
+      <span
+        aria-hidden
+        className={`${className ?? ""} inline-flex items-center justify-center font-heading text-[0.85em] leading-none`}
+      >
+        {letter}
+      </span>
+    );
+  };
 
 export const mlAi: Skill[] = [
   { name: "LangGraph", icon: FaProjectDiagram, isReactIcon: true },
@@ -74,7 +88,7 @@ export const infraDevops: Skill[] = [
   { name: "PySpark", icon: "devicon-apachespark-original colored" },
   { name: "Grafana", icon: SiGrafana, isReactIcon: true },
   { name: "Prometheus", icon: SiPrometheus, isReactIcon: true },
-  { name: "Locust", icon: GiAnt, isReactIcon: true },
+  { name: "Locust", icon: GiCricket, isReactIcon: true },
   { name: "Git", icon: "devicon-git-plain colored" },
   { name: "Linux", icon: "devicon-linux-plain" },
   { name: "Next.js", icon: "devicon-nextjs-plain" },
@@ -102,7 +116,7 @@ export const languages: Skill[] = [
   { name: "SQL", icon: "devicon-azuresqldatabase-plain colored" },
   { name: "R", icon: "devicon-r-plain colored" },
   { name: "Sage", icon: FaSquareRootAlt, isReactIcon: true },
-  { name: "Dafny", icon: FaShieldAlt, isReactIcon: true },
+  { name: "Dafny", icon: letterMark("D"), isReactIcon: true },
   { name: "LaTeX", icon: "devicon-latex-original" },
 ];
 

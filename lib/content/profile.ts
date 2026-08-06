@@ -5,7 +5,7 @@ export const profile = {
   name: "Leo Nguyen",
   // Kept for search: recruiters and academic records use the full name.
   legalName: "Aurelius (Leo) Nguyen",
-  role: "AI/ML Engineer",
+  role: "AI/ML Engineer & Researcher",
   location: "Minneapolis, MN",
   email: "nguy5272@umn.edu",
   site: "https://www.madarame.dev",
