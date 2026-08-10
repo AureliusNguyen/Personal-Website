@@ -9,6 +9,13 @@ export type Project = {
   demo?: string;
   /** Public source. */
   repo?: string;
+  /**
+   * Override the derived status. A project with neither `demo` nor `repo` is
+   * treated as in progress automatically, so this is only needed to mark
+   * something that DOES have a link but is still being built, or to force a
+   * link-less project to read as shipped.
+   */
+  status?: "in-progress" | "shipped";
   tech: string[];
   image?: string;
   imageAlt?: string;

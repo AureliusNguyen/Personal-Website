@@ -56,6 +56,13 @@ export function ProjectCard({
 }) {
   const image = localImage(project);
 
+  // Nothing public to click means the work is not shipped yet. Derived rather
+  // than hand-maintained so a project cannot claim to be done while offering
+  // no way to see it, and so adding a link later clears the badge on its own.
+  const inProgress =
+    project.status === "in-progress" ||
+    (project.status !== "shipped" && !project.demo && !project.repo);
+
   return (
     <PaperStack>
       <article
@@ -98,6 +105,18 @@ export function ProjectCard({
         >
           <div className="flex flex-wrap items-center gap-2">
             <Badge>{project.tag}</Badge>
+            {inProgress && (
+              // A real semantic state, so it gets a live dot. Neutral fill
+              // rather than crimson: this is a status note, not a headline,
+              // and it must not outrank the category badge beside it.
+              <Badge variant="neutral" className="gap-1.5">
+                <span
+                  aria-hidden
+                  className="size-1.5 rounded-full bg-main ring-1 ring-border"
+                />
+                In progress
+              </Badge>
+            )}
             <span className="text-xs text-foreground-muted">
               {project.period}
             </span>
