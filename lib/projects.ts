@@ -141,23 +141,26 @@ export const projects: Project[] = [
     image: "/images/the-churn-report.png",
     imageAlt: "The Churn Report project screenshot",
   },
-  {
-    id: "flashcards",
-    title: "Flashcard Generator",
-    period: "May 2024 – Jun 2024",
-    tag: "AI",
-    blurb:
-      "Lets students skip the busywork of building flashcards: paste any text (a chapter, lecture notes, an article) and get a study deck back in seconds, synced across devices so today's prep is on tomorrow's phone.",
-    highlights: [
-      "Groq Llama-3.2 generates question/answer pairs from arbitrary text in <3s — handles textbook excerpts, lecture notes, and free-form prompts without prompt brittleness.",
-      "Supabase auth + persistence for per-user decks, study history, and cross-device sync — no custom backend needed, RLS enforces per-user data isolation.",
-      "Next.js + Vercel deployment with continuous delivery and Clerk-managed sign-in flows; minimal downtime through preview deployments per PR.",
-    ],
-    repo: "https://github.com/AureliusNguyen/Flashcard",
-    tech: ["Next.js", "Groq", "Supabase", "Clerk", "Langchain", "OpenAI"],
-    image: "/images/flashcards-cover.svg",
-    imageAlt: "Stack of paper flashcards with Q and A",
-  },
+  // Hidden, not deleted. Uncomment to bring it back; it reappears on
+  // /projects automatically. Its demo at ai-flashcard-one.vercel.app was
+  // returning HTTP 500, so it was source-only anyway.
+  // {
+  //   id: "flashcards",
+  //   title: "Flashcard Generator",
+  //   period: "May 2024 – Jun 2024",
+  //   tag: "AI",
+  //   blurb:
+  //     "Lets students skip the busywork of building flashcards: paste any text (a chapter, lecture notes, an article) and get a study deck back in seconds, synced across devices so today's prep is on tomorrow's phone.",
+  //   highlights: [
+  //     "Groq Llama-3.2 generates question/answer pairs from arbitrary text in <3s — handles textbook excerpts, lecture notes, and free-form prompts without prompt brittleness.",
+  //     "Supabase auth + persistence for per-user decks, study history, and cross-device sync — no custom backend needed, RLS enforces per-user data isolation.",
+  //     "Next.js + Vercel deployment with continuous delivery and Clerk-managed sign-in flows; minimal downtime through preview deployments per PR.",
+  //   ],
+  //   repo: "https://github.com/AureliusNguyen/Flashcard",
+  //   tech: ["Next.js", "Groq", "Supabase", "Clerk", "Langchain", "OpenAI"],
+  //   image: "/images/flashcards-cover.svg",
+  //   imageAlt: "Stack of paper flashcards with Q and A",
+  // },
 ];
 
 // Cycling rank+suit pair per project card. Red suits will use --primary; black suits use foreground/85.
