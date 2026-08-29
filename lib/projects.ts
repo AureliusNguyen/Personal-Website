@@ -43,6 +43,25 @@ export const projects: Project[] = [
   //   imageAlt: "Code on dark monitors with crimson backlight",
   // },
   {
+    id: "askin-ai",
+    title: "Askin.ai",
+    period: "August 2026 - Present",
+    tag: "Platform",
+    blurb:
+      "An AI that lives inside the organization instead of in a chat tab: it works off the company's own systems and data to take on everyday corporate load, chasing follow-ups, surfacing the answer buried in another team's tools, and clearing the busywork nobody has time for.",
+    highlights: ["Coming soon."],
+    tech: [
+      "LangGraph",
+      "Kafka",
+      "Redis",
+      "gRPC",
+      "RabbitMQ",
+      "MongoDB",
+      "TypeScript",
+      "Docker Compose",
+    ],
+  },
+  {
     id: "zk-fl-medical",
     title: "Zero-Knowledge Federated Learning for Medical Imaging",
     period: "December 2025 – Present",
