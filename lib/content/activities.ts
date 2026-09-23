@@ -22,7 +22,7 @@ export const activities: Activity[] = [
     id: "cpp-club",
     kind: "Leadership",
     role: "Vice President",
-    org: "C++ Club, University of Minnesota",
+    org: "UMN CPP",
     period: "Aug 2026 - Present",
     summary:
       "I run a workshop series on the low-level design problems that come up in technical interviews: one familiar question per session, pushed until the textbook answer stops being the right one.",

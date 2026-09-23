@@ -8,7 +8,7 @@ import { activities } from "@/lib/content/activities";
 export const metadata: Metadata = {
   title: "Activities",
   description:
-    "Leadership, teaching, open source, and volunteering, including the interview-focused low-level design workshops I teach at the University of Minnesota C++ Club.",
+    "Leadership, teaching, open source, and volunteering, including the interview-focused low-level design workshops I teach at UMN CPP.",
   alternates: { canonical: "/activities" },
 };
 

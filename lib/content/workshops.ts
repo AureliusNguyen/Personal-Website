@@ -1,4 +1,4 @@
-// C++ Club workshop series, rendered under its activity on /activities.
+// UMN CPP workshop series, rendered under its activity on /activities.
 // A workshop with no slides and no recording is shown as "Upcoming", so the
 // planned schedule can be published before a session happens.
 
