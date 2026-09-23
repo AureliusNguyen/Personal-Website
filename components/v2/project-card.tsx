@@ -13,7 +13,7 @@ function localImage(project: Project) {
   return project.image?.startsWith("/") ? project.image : undefined;
 }
 
-function ProjectLink({
+export function ProjectLink({
   href,
   label,
   primary = false,
