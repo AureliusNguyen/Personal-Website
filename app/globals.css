@@ -355,6 +355,34 @@
   }
 }
 
+/* Desktop nav toggle, while the page links are folded: a crimson ring pings
+   outward from the button and the arrows sway left in time with it. A steady
+   "press me, it opens this way". The ring is a hard 2px outline to match the
+   neobrutalist edges rather than a soft glow. Pauses under the cursor, and is
+   off entirely for reduced motion. */
+@keyframes nav-ping {
+  0%        { transform: scale(1);    opacity: 0.9; }
+  70%, 100% { transform: scale(1.45); opacity: 0; }
+}
+@keyframes nav-sway {
+  0%, 100% { transform: translateX(0); }
+  50%      { transform: translateX(-4px); }
+}
+[data-site="v2"] .nav-ping {
+  animation: nav-ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+[data-site="v2"] .nav-sway {
+  animation: nav-sway 2s ease-in-out infinite;
+}
+[data-site="v2"] .group:hover .nav-ping,
+[data-site="v2"] .group:hover .nav-sway {
+  animation-play-state: paused;
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-site="v2"] .nav-ping { animation: none; opacity: 0; }
+  [data-site="v2"] .nav-sway { animation: none; }
+}
+
 /* ===========================================================================
    v1-only component classes. Nothing in the current site uses these; they are
    kept intact so the archive renders exactly as it always did.

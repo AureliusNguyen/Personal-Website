@@ -21,13 +21,13 @@ const CHANNELS = [
   },
   {
     label: "GitHub",
-    value: "AureliusNguyen",
+    value: "My GitHub",
     href: "https://github.com/AureliusNguyen",
     Icon: GithubLogo,
   },
   {
     label: "LinkedIn",
-    value: "aurelius-nguyen",
+    value: "My LinkedIn",
     href: "https://linkedin.com/in/aurelius-nguyen",
     Icon: LinkedinLogo,
   },
