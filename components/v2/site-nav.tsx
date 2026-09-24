@@ -81,16 +81,20 @@ export function SiteNav() {
               edge is the far (left) one: opening uncovers the button next to
               the toggle first, closing covers the far button first. Each
               button also fades and slides, staggered in the same order as the
-              edge. Closing is the opening played backwards: same durations,
-              reversed stagger, ease-in instead of ease-out. */}
+              edge. Closing mirrors the opening in order, with its own timing:
+              reversed stagger. Exit timing follows Material 3: shorter than
+              the entrance and on standard-accelerate (0.3, 0, 1, 1), which
+              starts moving on the first frame and speeds up. Opacity fades
+              linearly on exit; on an accelerating curve it would stay solid
+              and then vanish at the end, which reads as a pop. */}
           <div
             id="desktop-nav"
             className={[
               "hidden lg:grid",
-              "transition-[grid-template-columns] duration-500",
+              "transition-[grid-template-columns]",
               expanded
-                ? "grid-cols-[1fr] ease-[cubic-bezier(0.22,1,0.36,1)]"
-                : "grid-cols-[0fr] ease-[cubic-bezier(0.64,0,0.78,0)]",
+                ? "grid-cols-[1fr] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]"
+                : "grid-cols-[0fr] duration-[350ms] ease-[cubic-bezier(0.3,0,1,1)]",
             ].join(" ")}
           >
             {/* overflow-hidden does the clipping; the vertical padding and
@@ -108,15 +112,28 @@ export function SiteNav() {
                   return (
                     <li
                       key={item.href}
-                      style={{
-                        transitionDelay: `${(expanded ? fromToggle : i) * 40}ms`,
-                      }}
-                      className={[
-                        "transition-[opacity,transform] duration-300",
+                      style={
                         expanded
-                          ? "translate-x-0 opacity-100 ease-[cubic-bezier(0.22,1,0.36,1)]"
-                          : "translate-x-4 opacity-0 ease-[cubic-bezier(0.64,0,0.78,0)]",
-                      ].join(" ")}
+                          ? {
+                              transitionProperty: "opacity, transform",
+                              transitionDuration: "300ms",
+                              transitionTimingFunction:
+                                "cubic-bezier(0.22,1,0.36,1)",
+                              transitionDelay: `${fromToggle * 40}ms`,
+                            }
+                          : {
+                              transitionProperty: "opacity, transform",
+                              transitionDuration: "240ms, 300ms",
+                              transitionTimingFunction:
+                                "linear, cubic-bezier(0.3,0,1,1)",
+                              transitionDelay: `${i * 25}ms`,
+                            }
+                      }
+                      className={
+                        expanded
+                          ? "translate-x-0 opacity-100"
+                          : "translate-x-4 opacity-0"
+                      }
                     >
                       <Link
                         href={item.href}
